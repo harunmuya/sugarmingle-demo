@@ -4,7 +4,7 @@ import { useApp } from '@/lib/context'
 import { ShieldIcon, UserIcon, VerifiedIcon, CrownIcon, MapPinIcon, SearchIcon, CheckIcon, StarIcon } from '@/lib/icons'
 
 const ADMIN_PASSWORD = 'sugarmingle_admin_2026'
-const ADMIN_EMAIL = 'marygagency' // Updated from sugarmingleextra@gmail.com
+const ADMIN_EMAIL = 'sugarmingleextra@gmail.com'
 
 function AdminDashboard() {
     const { profiles } = useApp()
@@ -14,13 +14,13 @@ function AdminDashboard() {
     const [search, setSearch] = useState('')
     const [userFilter, setUserFilter] = useState('all')
 
-    // Auto-unlock for admin email
+    // Auto-unlock for admin email from localStorage
     useEffect(() => {
         try {
             const saved = localStorage.getItem('sm_user')
             if (saved) {
                 const u = JSON.parse(saved)
-                if (u.email === ADMIN_EMAIL) {
+                if (u.email && (u.email === ADMIN_EMAIL || u.email.toLowerCase() === ADMIN_EMAIL.toLowerCase())) {
                     setAuthed(true)
                 }
             }
@@ -49,7 +49,7 @@ function AdminDashboard() {
         if (password === ADMIN_PASSWORD) {
             setAuthed(true)
         } else {
-            alert('Incorrect password')
+            alert('Incorrect password. Use: sugarmingle_admin_2026')
         }
     }
 
@@ -81,7 +81,7 @@ function AdminDashboard() {
                         <ShieldIcon size={16} color="#fff" /> Access Dashboard
                     </button>
                     <div style={{ marginTop: 16, fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                        Admin email ({ADMIN_EMAIL}) auto-unlocks.
+                        Logged in as {ADMIN_EMAIL}? Admin auto-unlocks.
                     </div>
                 </div>
             </div>

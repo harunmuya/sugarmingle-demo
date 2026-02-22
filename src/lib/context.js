@@ -46,7 +46,7 @@ export function AppProvider({ children }) {
             if (saved) {
                 const parsedUser = JSON.parse(saved)
                 setUser(parsedUser)
-                if (parsedUser?.email === 'marygagency' || parsedUser?.email === 'marygagency@gmail.com') {
+                if (parsedUser?.email === 'sugarmingleextra@gmail.com') {
                     setTier('platinum')
                     localStorage.setItem('sm_tier', 'platinum')
                 }

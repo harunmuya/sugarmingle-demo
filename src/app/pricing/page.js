@@ -152,7 +152,7 @@ function PricingContent() {
             <nav className="navbar" style={{ justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }} onClick={() => router.push('/')}>
                     <img src="/icon-512.png" alt="SM" style={{ width: 36, height: 36, borderRadius: 10, objectFit: 'contain' }} />
-                    <span style={{ fontWeight: 800, fontSize: '1.2rem' }}><span className="gradient-text">Sugar</span>Mingle</span>
+                    <span style={{ fontWeight: 800, fontSize: '1.2rem' }}><span className="gradient-text">Sugar Mingle</span> Extra</span>
                 </div>
                 {user && <button className="btn btn-ghost btn-sm" onClick={() => router.push('/discover')} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6" /></svg> App
@@ -164,7 +164,7 @@ function PricingContent() {
                     {/* HEADER */}
                     <div style={{ textAlign: 'center', marginBottom: 48 }}>
                         <div className="section-tag" style={{ marginBottom: 12 }}>Subscription Plans</div>
-                        <h1>Choose Your <span className="gradient-text">SugarMingle Plan</span></h1>
+                        <h1>Choose Your <span className="gradient-text">Sugar Mingle Extra Plan</span></h1>
                         <p style={{ maxWidth: 500, margin: '12px auto 0', fontSize: '1rem' }}>
                             Unlock the premium features you deserve. Charged in{' '}
                             <strong style={{ color: 'var(--primary)' }}>{localCurrency.code}</strong>

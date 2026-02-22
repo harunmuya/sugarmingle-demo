@@ -17,6 +17,14 @@ const SEED_PROFILES = [
     { id: 'p18', name: 'Anthony B.', age: 55, role: 'Sugar Daddy', gender: 'Man', orientation: 'Straight', bio: 'Retired diplomat now living the good life. I have stories from every continent and want someone to create new chapters with. Generous and gentle.', location: 'Addis Ababa, Ethiopia', distance: 16, photos: ['https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=600&h=800&fit=crop&crop=face'], interests: ['Politics', 'Literature', 'Travel', 'Wine'], verified: true, premium: 'gold', lastActive: Date.now() - 400000, height: '5\'10"', smoke: 'No', drink: 'Socially', kids: 'Yes', zodiac: 'Virgo', job: 'Ex-Diplomat', online: false, attractiveness: 0.83, likes: [], passes: [] },
     { id: 'p19', name: 'Chloe M.', age: 23, role: 'Sugar Baby', gender: 'Woman', orientation: 'Bisexual', bio: 'University student studying luxury brand management. I know the difference between Chanel and Prada and I want someone who does too. Smart, sassy, classy.', location: 'Kigali, Rwanda', distance: 3, photos: ['https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=600&h=800&fit=crop&crop=face'], interests: ['Fashion', 'Art', 'Coffee', 'Movies'], verified: true, premium: 'free', lastActive: Date.now() - 250000, height: '5\'4"', smoke: 'No', drink: 'Occasionally', kids: 'No', zodiac: 'Aries', job: 'Student', online: true, attractiveness: 0.92, likes: [], passes: [] },
     { id: 'p20', name: 'Brian W.', age: 35, role: 'Sugarboy', gender: 'Man', orientation: 'Straight', bio: 'Software engineer by day, musician by night. I write code and love songs. Looking for a sophisticated woman who appreciates both tech and tenderness.', location: 'Lusaka, Zambia', distance: 13, photos: ['https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=600&h=800&fit=crop&crop=face'], interests: ['Music', 'Tech', 'Cooking', 'Travel'], verified: true, premium: 'silver', lastActive: Date.now() - 700000, height: '5\'11"', smoke: 'No', drink: 'Socially', kids: 'No', zodiac: 'Pisces', job: 'Software Engineer', online: false, attractiveness: 0.85, likes: [], passes: [] },
+    { id: 'p21', name: 'Mei Lin C.', age: 29, role: 'Sugar Baby', gender: 'Woman', orientation: 'Straight', bio: 'Fashion influencer based in Shanghai. I love luxury shopping, fine dining, and weekend getaways. Looking for a generous gentleman who appreciates style.', location: 'Shanghai, China', distance: 30, photos: ['https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop&crop=face'], interests: ['Fashion', 'Shopping', 'Photography', 'Travel'], verified: true, premium: 'gold', lastActive: Date.now() - 120000, height: '5\'4"', smoke: 'No', drink: 'Wine only', kids: 'No', zodiac: 'Libra', job: 'Fashion Influencer', online: true, attractiveness: 0.95, likes: [], passes: [] },
+    { id: 'p22', name: 'Carlos M.', age: 45, role: 'Sugar Daddy', gender: 'Man', orientation: 'Straight', bio: 'Real estate mogul from São Paulo. I enjoy life in the fast lane — yachts, jets, and beautiful company. Serious about fun, not about drama.', location: 'São Paulo, Brazil', distance: 20, photos: ['https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&crop=face'], interests: ['Real Estate', 'Boating', 'Nightlife', 'Cars'], verified: true, premium: 'platinum', lastActive: Date.now() - 90000, height: '6\'0"', smoke: 'Cigars', drink: 'Whiskey', kids: 'Yes', zodiac: 'Leo', job: 'Real Estate Developer', online: true, attractiveness: 0.88, likes: [], passes: [] },
+    { id: 'p23', name: 'Priya S.', age: 31, role: 'Sugar Baby', gender: 'Woman', orientation: 'Straight', bio: 'Bollywood dancer and fitness coach. My energy is contagious and my smile is irresistible. Seeking a mature man who values beauty and ambition.', location: 'Mumbai, India', distance: 18, photos: ['https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=800&fit=crop&crop=face'], interests: ['Dance', 'Fitness', 'Movies', 'Yoga'], verified: true, premium: 'silver', lastActive: Date.now() - 350000, height: '5\'6"', smoke: 'No', drink: 'Occasionally', kids: 'No', zodiac: 'Aries', job: 'Dance Instructor', online: true, attractiveness: 0.93, likes: [], passes: [] },
+    { id: 'p24', name: 'Hans W.', age: 50, role: 'Sugar Daddy', gender: 'Man', orientation: 'Straight', bio: 'German banker with a love for opera, fine wine, and long conversations. Cultured, refined, and looking for a companion who appreciates the finer things.', location: 'Berlin, Germany', distance: 28, photos: ['https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop&crop=face'], interests: ['Finance', 'Opera', 'Wine', 'Travel'], verified: true, premium: 'gold', lastActive: Date.now() - 500000, height: '6\'1"', smoke: 'No', drink: 'Wine', kids: 'Yes', zodiac: 'Capricorn', job: 'Investment Banker', online: false, attractiveness: 0.82, likes: [], passes: [] },
+    { id: 'p25', name: 'Yuki T.', age: 26, role: 'Sugar Baby', gender: 'Woman', orientation: 'Bisexual', bio: 'Art curator and street photographer from Tokyo. I find beauty in everything and everyone. Looking for someone who can see the world through my lens.', location: 'Tokyo, Japan', distance: 12, photos: ['https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=800&fit=crop&crop=face'], interests: ['Art', 'Photography', 'Fashion', 'Coffee'], verified: true, premium: 'free', lastActive: Date.now() - 180000, height: '5\'3"', smoke: 'No', drink: 'Socially', kids: 'No', zodiac: 'Pisces', job: 'Art Curator', online: true, attractiveness: 0.91, likes: [], passes: [] },
+    { id: 'p26', name: 'Sofia V.', age: 38, role: 'Sugar Mummy', gender: 'Woman', orientation: 'Straight', bio: 'Wine estate owner from Tuscany. I live surrounded by vineyards and sunsets. Looking for a charming young man to share la dolce vita with me.', location: 'Florence, Italy', distance: 25, photos: ['https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=800&fit=crop&crop=face'], interests: ['Wine', 'Cooking', 'Art', 'Travel'], verified: true, premium: 'platinum', lastActive: Date.now() - 60000, height: '5\'7"', smoke: 'No', drink: 'Wine', kids: 'No', zodiac: 'Taurus', job: 'Vineyard Owner', online: true, attractiveness: 0.94, likes: [], passes: [] },
+    { id: 'p27', name: 'Ahmed K.', age: 44, role: 'Sugar Daddy', gender: 'Man', orientation: 'Straight', bio: 'Oil executive based in Dubai. Generous, stylish, and well-connected. I travel first class and expect nothing less for my companion.', location: 'Dubai, UAE', distance: 10, photos: ['https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=800&fit=crop&crop=face'], interests: ['Luxury', 'Cars', 'Travel', 'Golf'], verified: true, premium: 'platinum', lastActive: Date.now() - 75000, height: '5\'11"', smoke: 'No', drink: 'No', kids: 'Yes', zodiac: 'Scorpio', job: 'Oil Executive', online: true, attractiveness: 0.87, likes: [], passes: [] },
+    { id: 'p28', name: 'Luna R.', age: 22, role: 'Sugar Baby', gender: 'Woman', orientation: 'Straight', bio: 'Psychology student and aspiring therapist from Buenos Aires. I know how to listen, how to laugh, and how to love. Seeking an older gentleman who values intelligence.', location: 'Buenos Aires, Argentina', distance: 15, photos: ['https://images.unsplash.com/photo-1514315384763-ba401779410f?w=600&h=800&fit=crop&crop=face'], interests: ['Psychology', 'Books', 'Dance', 'Travel'], verified: true, premium: 'free', lastActive: Date.now() - 200000, height: '5\'5"', smoke: 'No', drink: 'Occasionally', kids: 'No', zodiac: 'Gemini', job: 'Psychology Student', online: true, attractiveness: 0.96, likes: [], passes: [] },
 ]
 
 export function AppProvider({ children }) {
@@ -54,6 +62,8 @@ export function AppProvider({ children }) {
             if (savedTier) setTier(savedTier)
             if (savedMatches) setMatches(JSON.parse(savedMatches))
             if (savedConvos) setConversations(JSON.parse(savedConvos))
+            const savedNotifs = localStorage.getItem('sm_notifications')
+            if (savedNotifs) setNotifications(JSON.parse(savedNotifs))
 
             const today = new Date().toDateString()
             if (savedDailyDate !== today) {
@@ -101,7 +111,13 @@ export function AppProvider({ children }) {
                 const newConvos = { ...conversations, [profileId]: [] }
                 setConversations(newConvos)
                 localStorage.setItem('sm_convos', JSON.stringify(newConvos))
+                // Add notification for new match
+                addNotification('match', `You matched with ${profile.name}! 🎉`, profile.id)
             }
+        } else {
+            // Add notification for like sent
+            const profile = profiles.find(p => p.id === profileId)
+            if (profile) addNotification('like', `You liked ${profile.name}'s profile`, profile.id)
         }
         return true
     }
@@ -162,9 +178,9 @@ export function AppProvider({ children }) {
                 "I like where this is going... don't stop.",
             ]
 
-            // AI Human-like Delayed Reply (3 to 8 seconds randomly)
-            // min: 3s, max: 8s
-            const delay = (3 + Math.random() * 5) * 1000
+            // AI Human-like Delayed Reply (5 to 10 minutes randomly)
+            // min: 300s (5 min), max: 600s (10 min)
+            const delay = (300 + Math.random() * 300) * 1000
 
             setTimeout(() => {
                 const reply = {
@@ -179,9 +195,27 @@ export function AppProvider({ children }) {
                     localStorage.setItem('sm_convos', JSON.stringify(u))
                     return u
                 })
+                // Add notification for received message
+                addNotification('message', `${profile.name} sent you a message`, matchId)
             }, delay)
         }
         return true
+    }
+
+    const addNotification = (type, message, relatedId = null) => {
+        const notif = {
+            id: 'n_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+            type, // match | message | like | verification | system
+            message,
+            relatedId,
+            timestamp: Date.now(),
+            read: false
+        }
+        setNotifications(prev => {
+            const updated = [notif, ...prev].slice(0, 50) // Keep last 50
+            localStorage.setItem('sm_notifications', JSON.stringify(updated))
+            return updated
+        })
     }
 
     return (
@@ -189,7 +223,7 @@ export function AppProvider({ children }) {
             user, setUser: saveUser, profiles, matches, conversations, notifications,
             tier, setTier: saveTier, dailyLikes, dailyMessages, swipeIndex, setSwipeIndex,
             loading, toast, matchPopup, setMatchPopup,
-            handleLike, sendMessage, showToast, DAILY_LIMIT, MESSAGE_LIMIT
+            handleLike, sendMessage, showToast, addNotification, DAILY_LIMIT, MESSAGE_LIMIT
         }}>
             {children}
         </AppContext.Provider>

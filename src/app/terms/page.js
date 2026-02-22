@@ -8,7 +8,7 @@ export default function TermsPage() {
             <nav className="navbar" style={{ justifyContent: 'space-between' }}>
                 <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <img src="/icon-512.png" alt="SM" style={{ width: 32, height: 32, borderRadius: 8 }} />
-                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar</span>Mingle</span>
+                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar Mingle</span> Extra</span>
                 </Link>
                 <Link href="/auth/register" className="btn btn-primary btn-sm">Join Free</Link>
             </nav>
@@ -22,12 +22,12 @@ export default function TermsPage() {
 
                         <h3 style={{ color: 'var(--text-primary)', marginTop: 32, marginBottom: 12 }}>1. Acceptance of Terms</h3>
                         <p style={{ marginBottom: 16 }}>
-                            By creating an account on SugarMingle, you agree to abide by these Terms of Service. If you do not agree, you must not use the platform.
+                            By creating an account on Sugar Mingle Extra, you agree to abide by these Terms of Service. If you do not agree, you must not use the platform.
                         </p>
 
                         <h3 style={{ color: 'var(--text-primary)', marginTop: 32, marginBottom: 12 }}>2. Eligibility</h3>
                         <p style={{ marginBottom: 16 }}>
-                            You must be at least 18 years of age to use SugarMingle. By using the app, you represent and warrant that you have the right, authority, and capacity to enter into this agreement.
+                            You must be at least 18 years of age to use Sugar Mingle Extra. By using the app, you represent and warrant that you have the right, authority, and capacity to enter into this agreement.
                         </p>
 
                         <h3 style={{ color: 'var(--text-primary)', marginTop: 32, marginBottom: 12 }}>3. User Conduct</h3>
@@ -37,7 +37,7 @@ export default function TermsPage() {
 
                         <h3 style={{ color: 'var(--text-primary)', marginTop: 32, marginBottom: 12 }}>4. Arrangement Transparency</h3>
                         <p style={{ marginBottom: 16 }}>
-                            SugarMingle facilitates connections. We do not participate in or guarantee any specific arrangements between users. All interactions are at the users' own risk and discretion.
+                            Sugar Mingle Extra facilitates connections. We do not participate in or guarantee any specific arrangements between users. All interactions are at the users' own risk and discretion.
                         </p>
 
                         <h3 style={{ color: 'var(--text-primary)', marginTop: 32, marginBottom: 12 }}>5. Payments & Refunds</h3>

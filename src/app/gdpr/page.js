@@ -8,7 +8,7 @@ export default function GDPRPage() {
             <nav className="navbar" style={{ justifyContent: 'space-between' }}>
                 <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <img src="/icon-512.png" alt="SM" style={{ width: 32, height: 32, borderRadius: 8 }} />
-                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar</span>Mingle</span>
+                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar Mingle</span> Extra</span>
                 </Link>
                 <Link href="/auth/register" className="btn btn-primary btn-sm">Join Free</Link>
             </nav>
@@ -22,7 +22,7 @@ export default function GDPRPage() {
 
                         <h3 style={{ color: 'var(--text-primary)', marginTop: 32, marginBottom: 12 }}>1. Your Data Rights</h3>
                         <p style={{ marginBottom: 16 }}>
-                            Under the General Data Protection Regulation (GDPR), users within the European Economic Area (EEA) have strict rights concerning their personal data. SugarMingle extends these rights to all our global users for ultimate transparency.
+                            Under the General Data Protection Regulation (GDPR), users within the European Economic Area (EEA) have strict rights concerning their personal data. Sugar Mingle Extra extends these rights to all our global users for ultimate transparency.
                         </p>
 
                         <h3 style={{ color: 'var(--text-primary)', marginTop: 32, marginBottom: 12 }}>2. Data Portability & Access</h3>

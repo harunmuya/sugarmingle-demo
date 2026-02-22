@@ -3,16 +3,23 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useApp } from '@/lib/context'
 import { FireIcon, SearchIcon, HeartIcon, MessageIcon, UserIcon, DiamondIcon, CheckIcon, XIcon } from '@/lib/icons'
 
+function BellIcon({ size = 22, color = 'currentColor' }) {
+    return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
+}
+
 function AppShell({ children }) {
     const pathname = usePathname()
     const router = useRouter()
-    const { user, matches, toast } = useApp()
+    const { user, matches, notifications, toast } = useApp()
+
+    const unreadNotifs = notifications?.filter(n => !n.read)?.length || 0
 
     const navItems = [
         { href: '/discover', icon: <FireIcon size={22} />, label: 'Discover' },
         { href: '/explore', icon: <SearchIcon size={22} />, label: 'Explore' },
         { href: '/matches', icon: <HeartIcon size={22} />, label: 'Matches', badge: matches?.length },
         { href: '/messages', icon: <MessageIcon size={22} />, label: 'Messages' },
+        { href: '/notifications', icon: <BellIcon size={22} />, label: 'Alerts', badge: unreadNotifs },
         { href: '/profile', icon: <UserIcon size={22} />, label: 'Profile' },
     ]
 
@@ -21,8 +28,8 @@ function AppShell({ children }) {
             {/* TOP BAR */}
             <nav className="navbar" style={{ justifyContent: 'space-between', background: 'rgba(255,255,255,0.9)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }} onClick={() => router.push('/discover')}>
-                    <img src="/icon-512.png" alt="SM" style={{ width: 36, height: 36, borderRadius: 10, objectFit: 'contain' }} />
-                    <span style={{ fontWeight: 800, fontSize: '1.2rem', color: 'var(--text-primary)' }}><span className="gradient-text">Sugar</span>Mingle</span>
+                    <img src="/icon-512.png" alt="SME" style={{ width: 44, height: 44, borderRadius: 12, objectFit: 'contain' }} />
+                    <span style={{ fontWeight: 800, fontSize: '1.15rem', color: 'var(--text-primary)' }}><span className="gradient-text">Sugar Mingle</span> Extra</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                     <button onClick={() => router.push('/pricing')} className="btn btn-ghost btn-sm" style={{ fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: 4, background: 'var(--gradient-soft)', border: 'none' }}>

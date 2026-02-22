@@ -1,5 +1,5 @@
 /**
- * SugarMingle Matching Algorithm
+ * Sugar Mingle Extra Matching Algorithm
  * Ranked composite score for profile discovery
  */
 

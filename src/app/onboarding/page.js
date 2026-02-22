@@ -7,7 +7,7 @@ import { CameraIcon, MapPinIcon, HeartIcon, CheckIcon, CrownIcon, VerifiedIcon, 
 const STEPS = [
     { title: 'Add Your Photo', subtitle: 'A great photo gets 10x more matches' },
     { title: 'About You', subtitle: 'Tell potential matches who you are' },
-    { title: 'Your Role', subtitle: 'What are you looking for on SugarMingle?' },
+    { title: 'Your Role', subtitle: 'What are you looking for on Sugar Mingle Extra?' },
     { title: 'Your Gender & Orientation', subtitle: 'Who do you want to meet?' },
     { title: 'Your Location', subtitle: 'Find matches near you' },
     { title: 'Your Lifestyle', subtitle: 'Share what makes you unique' },
@@ -290,7 +290,7 @@ function OnboardingWizard() {
                                     <CheckIcon size={40} color="#fff" />
                                 </div>
                                 <h3 style={{ marginBottom: 8 }}>Profile Complete!</h3>
-                                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 20 }}>You're ready to start discovering amazing connections on SugarMingle.</p>
+                                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 20 }}>You're ready to start discovering amazing connections on Sugar Mingle Extra.</p>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8, textAlign: 'left', marginBottom: 20 }}>
                                     {[
                                         { icon: <VerifiedIcon size={16} />, text: 'Get verified to boost your visibility' },

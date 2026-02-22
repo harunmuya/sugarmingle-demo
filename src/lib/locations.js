@@ -1,5 +1,5 @@
 /**
- * SugarMingle Global Location Dataset
+ * Sugar Mingle Extra Global Location Dataset
  * A curated list of major countries and cities for discovery.
  */
 

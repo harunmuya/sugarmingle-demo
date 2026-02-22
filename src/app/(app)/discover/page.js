@@ -31,6 +31,7 @@ export default function DiscoverPage() {
     const [swiping, setSwiping] = useState(false)
     const [animDir, setAnimDir] = useState(null) // 'left' | 'right'
     const [upgradeType, setUpgradeType] = useState(null)
+    const [showDetail, setShowDetail] = useState(false)
     const [coords, setCoords] = useState(null)
     const [expandSearch, setExpandSearch] = useState(false)
     const cardRef = useRef(null)
@@ -127,7 +128,7 @@ export default function DiscoverPage() {
         return (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 140px)', textAlign: 'center', padding: 40 }}>
                 <HeartIcon size={64} color="var(--primary)" />
-                <h2 style={{ marginTop: 20 }}>Welcome to SugarMingle</h2>
+                <h2 style={{ marginTop: 20 }}>Welcome to Sugar Mingle Extra</h2>
                 <p style={{ color: 'var(--text-muted)', marginTop: 8, maxWidth: 360 }}>Create an account to start discovering amazing connections worldwide.</p>
                 <button className="btn btn-primary" style={{ marginTop: 24 }} onClick={() => router.push('/auth/register')}>Get Started</button>
             </div>
@@ -239,6 +240,15 @@ export default function DiscoverPage() {
                                     </div>
                                 )}
                             </div>
+                            {/* Tap to view details button */}
+                            <button onClick={(e) => { e.stopPropagation(); setShowDetail(true) }} style={{
+                                position: 'absolute', top: 16, right: 16, background: 'rgba(0,0,0,0.5)',
+                                border: 'none', borderRadius: '50%', width: 36, height: 36,
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                cursor: 'pointer', zIndex: 5, backdropFilter: 'blur(8px)'
+                            }}>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
+                            </button>
                         </div>
                     </>
                 )}
@@ -282,8 +292,61 @@ export default function DiscoverPage() {
                             <img src={matchPopup.photos[0]} alt={matchPopup.name} />
                         </div>
                         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 16 }}>
-                            <button className="btn btn-primary" onClick={() => { setMatchPopup(null); router.push('/messages') }}>Send Message</button>
+                            <button className="btn btn-primary" onClick={() => { setMatchPopup(null); router.push(`/messages?chat=${matchPopup.id}`) }}>Send Message</button>
                             <button className="btn btn-dark" onClick={() => setMatchPopup(null)}>Keep Swiping</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* PROFILE DETAIL MODAL */}
+            {showDetail && current && (
+                <div className="modal-overlay" onClick={() => setShowDetail(false)} style={{ zIndex: 100 }}>
+                    <div className="modal" onClick={e => e.stopPropagation()} style={{ maxWidth: 420, maxHeight: '85vh', overflow: 'auto', padding: 0 }}>
+                        <img src={current.photos[0]} alt={current.name} style={{ width: '100%', height: 280, objectFit: 'cover', borderRadius: '12px 12px 0 0' }} />
+                        <div style={{ padding: '20px 24px 24px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                                <h2 style={{ fontSize: '1.3rem' }}>{current.name}, {current.age}</h2>
+                                {current.verified && <VerifiedIcon size={18} color="#E91E90" />}
+                                <TierBadge tier={current.premium} />
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: 12 }}>
+                                <MapPinIcon size={12} /> {current.location} · {current.distance} km
+                            </div>
+                            <div style={{ display: 'inline-block', padding: '3px 10px', borderRadius: 12, background: 'rgba(233,30,144,0.1)', color: 'var(--primary)', fontSize: '0.78rem', fontWeight: 600, marginBottom: 16 }}>
+                                {current.role}
+                            </div>
+
+                            <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text-secondary)', marginBottom: 20 }}>{current.bio}</p>
+
+                            {/* Details Grid */}
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
+                                {current.job && <div style={{ fontSize: '0.82rem' }}><strong>Job:</strong> {current.job}</div>}
+                                {current.height && <div style={{ fontSize: '0.82rem' }}><strong>Height:</strong> {current.height}</div>}
+                                {current.zodiac && <div style={{ fontSize: '0.82rem' }}><strong>Zodiac:</strong> {current.zodiac}</div>}
+                                {current.smoke && <div style={{ fontSize: '0.82rem' }}><strong>Smokes:</strong> {current.smoke}</div>}
+                                {current.drink && <div style={{ fontSize: '0.82rem' }}><strong>Drinks:</strong> {current.drink}</div>}
+                                {current.kids && <div style={{ fontSize: '0.82rem' }}><strong>Kids:</strong> {current.kids}</div>}
+                            </div>
+
+                            {/* Interests */}
+                            {current.interests && (
+                                <div style={{ marginBottom: 20 }}>
+                                    <strong style={{ fontSize: '0.85rem', marginBottom: 8, display: 'block' }}>Interests</strong>
+                                    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                                        {current.interests.map(i => (
+                                            <span key={i} style={{ padding: '4px 12px', borderRadius: 16, background: 'rgba(233,30,144,0.08)', fontSize: '0.78rem', fontWeight: 600, color: 'var(--primary)' }}>{i}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            <div style={{ display: 'flex', gap: 12 }}>
+                                <button className="btn btn-primary" style={{ flex: 1 }} onClick={() => { setShowDetail(false); like() }}>
+                                    <HeartIcon size={16} color="#fff" /> Like
+                                </button>
+                                <button className="btn btn-dark" style={{ flex: 1 }} onClick={() => setShowDetail(false)}>Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -4,28 +4,28 @@ import './globals.css'
 export const metadata = {
     metadataBase: new URL('https://sugarmingleextra.com'),
     title: {
-        default: 'SugarMingle – Premium Sugar Dating | Meet Sugar Mummies, Sugar Daddies & Sugar Babies',
-        template: '%s | SugarMingle'
+        default: 'Sugar Mingle Extra – Premium Sugar Dating | Meet Sugar Mummies, Sugar Daddies & Sugar Babies',
+        template: '%s | Sugar Mingle Extra'
     },
-    description: 'SugarMingle is the world\'s #1 premium sugar dating platform. Connect with verified sugar mummies, sugar daddies, sugar babies and sugarboys globally. Safe, secure, and scam-free.',
-    keywords: ['sugar dating', 'sugar mummy', 'sugar daddy', 'sugar baby', 'dating app', 'luxury dating', 'sugarmingle', 'sugarmingleextra'],
-    authors: [{ name: 'SugarMingle', url: 'https://sugarmingleextra.com' }],
-    creator: 'SugarMingle',
-    publisher: 'SugarMingle',
+    description: 'Sugar Mingle Extra is the world\'s #1 premium sugar dating platform with over 10 million users. Connect with verified sugar mummies, sugar daddies, sugar babies and sugarboys globally. Safe, secure, and scam-free.',
+    keywords: ['sugar dating', 'sugar mummy', 'sugar daddy', 'sugar baby', 'dating app', 'luxury dating', 'sugar mingle extra', 'sugarmingleextra'],
+    authors: [{ name: 'Sugar Mingle Extra', url: 'https://sugarmingleextra.com' }],
+    creator: 'Sugar Mingle Extra',
+    publisher: 'Sugar Mingle Extra',
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     openGraph: {
         type: 'website',
         locale: 'en_US',
         url: 'https://sugarmingleextra.com',
-        siteName: 'SugarMingle',
-        title: 'SugarMingle – Premium Sugar Dating',
-        description: 'Meet verified sugar mummies, sugar daddies & sugar babies worldwide. Safe, real, luxury dating.',
-        images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'SugarMingle Dating' }]
+        siteName: 'Sugar Mingle Extra',
+        title: 'Sugar Mingle Extra – Premium Sugar Dating',
+        description: 'Meet verified sugar mummies, sugar daddies & sugar babies worldwide. 10M+ users. Safe, real, luxury dating.',
+        images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Sugar Mingle Extra Dating' }]
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'SugarMingle – Premium Sugar Dating',
-        description: 'Meet verified sugar mummies, daddies & babies worldwide.',
+        title: 'Sugar Mingle Extra – Premium Sugar Dating',
+        description: 'Meet verified sugar mummies, daddies & babies worldwide. 10M+ users.',
         images: ['/og-image.jpg']
     },
     icons: {

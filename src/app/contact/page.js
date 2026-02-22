@@ -9,7 +9,7 @@ export default function ContactPage() {
             <nav className="navbar" style={{ justifyContent: 'space-between' }}>
                 <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <img src="/icon-512.png" alt="SM" style={{ width: 32, height: 32, borderRadius: 8 }} />
-                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar</span>Mingle</span>
+                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar Mingle</span> Extra</span>
                 </Link>
                 <Link href="/" className="btn btn-ghost btn-sm">Back Home</Link>
             </nav>
@@ -54,7 +54,7 @@ export default function ContactPage() {
                                 <div>
                                     <h4 style={{ marginBottom: 4 }}>Global Office</h4>
                                     <p style={{ fontSize: '0.85rem' }}>London, United Kingdom</p>
-                                    <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>SugarMingle Global HQ</p>
+                                    <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Sugar Mingle Extra Global HQ</p>
                                 </div>
                             </div>
                         </div>

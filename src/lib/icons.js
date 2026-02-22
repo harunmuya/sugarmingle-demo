@@ -1,4 +1,4 @@
-// SugarMingle SVG Icon Library — replace emojis with crisp vector icons
+// Sugar Mingle Extra SVG Icon Library — replace emojis with crisp vector icons
 export const Icon = {
     // Brand
     logo: (size = 32) => `<svg width="${size}" height="${size}" viewBox="0 0 32 32"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E91E90"/><stop offset="100%" stop-color="#FF8C42"/></linearGradient></defs><path d="M16 4 L24 12 Q28 16 24 20 L16 28 L8 20 Q4 16 8 12 Z" fill="url(#lg)" rx="4"/><path d="M13 14 Q16 10 19 14 Q20 16 18 18 Q16 20 14 18 Q12 16 13 14Z" fill="white"/></svg>`,
@@ -237,7 +237,7 @@ export function BrandLogo({ size = 36, darkBg = true }) {
     return (
         <img
             src="/icon-512.png"
-            alt="SugarMingle"
+            alt="Sugar Mingle Extra"
             width={size}
             height={size}
             style={{ borderRadius: size > 40 ? 16 : 10, objectFit: 'contain' }}
@@ -249,7 +249,7 @@ export function BrandLogoFull({ height = 40, darkBg = true }) {
     return (
         <img
             src={darkBg ? '/logo-dark.png' : '/logo-full.png'}
-            alt="SugarMingle Extra"
+            alt="Sugar Mingle Extra Extra"
             height={height}
             style={{ objectFit: 'contain' }}
         />

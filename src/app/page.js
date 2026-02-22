@@ -5,9 +5,9 @@ import Footer from '@/components/Footer'
 function Logo() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <img src="/icon-512.png" alt="SugarMingle" style={{ width: 40, height: 40, borderRadius: 12, objectFit: 'contain', boxShadow: '0 4px 16px rgba(233,30,144,0.5)' }} />
+            <img src="/icon-512.png" alt="Sugar Mingle Extra" style={{ width: 40, height: 40, borderRadius: 12, objectFit: 'contain', boxShadow: '0 4px 16px rgba(233,30,144,0.5)' }} />
             <span style={{ fontWeight: 800, fontSize: '1.3rem' }}>
-                <span className="gradient-text">Sugar</span>Mingle
+                <span className="gradient-text">Sugar Mingle</span> Extra
             </span>
         </div>
     )
@@ -17,7 +17,7 @@ const FEATURES = [
     { icon: <DiamondIcon size={28} color="#E91E90" />, title: 'Premium Sugar Matching', desc: 'Our algorithm connects verified sugar mummies, daddies and babies based on compatibility, proximity and lifestyle.' },
     { icon: <FireIcon size={28} color="#E91E90" />, title: 'Swipe & Match Instantly', desc: 'Tinder-style discovery with Super Likes, Boosts and curated Top Picks tailored to the sugar lifestyle.' },
     { icon: <MessageIcon size={28} color="#E91E90" />, title: 'Real-Time Messaging', desc: 'Chat with matches instantly. Read receipts, typing indicators, GIFs, emojis and voice notes built in.' },
-    { icon: <CameraIcon size={28} color="#E91E90" />, title: 'Video & Audio Calls', desc: 'Face-to-face video calls completely inside SugarMingle — no phone numbers needed, fully private.' },
+    { icon: <CameraIcon size={28} color="#E91E90" />, title: 'Video & Audio Calls', desc: 'Face-to-face video calls completely inside Sugar Mingle Extra — no phone numbers needed, fully private.' },
     { icon: <ShieldIcon size={28} color="#E91E90" />, title: 'Verified & Scam-Free', desc: 'Photo verification, profile badges and AI moderation ensure every match is genuine — zero fake profiles.' },
     { icon: <MapPinIcon size={28} color="#E91E90" />, title: 'Global & Local Pay', desc: 'Available worldwide. Payments in your local currency — M-Pesa, cards, Google Pay and more.' },
 ]
@@ -30,8 +30,8 @@ const STATS = [
 ]
 
 const TESTIMONIALS = [
-    { name: 'Patricia M.', role: 'Sugar Mummy', age: 44, city: 'Nairobi', text: "SugarMingle connected me with the most genuine, caring companion I've ever met. The verification system gave me total confidence.", rating: 5 },
-    { name: 'Kevin A.', role: 'Sugarboy', age: 26, city: 'Lagos', text: "I'd given up on sugar dating apps because of scammers. SugarMingle is on a different level — every match feels real and worthwhile.", rating: 5 },
+    { name: 'Patricia M.', role: 'Sugar Mummy', age: 44, city: 'Nairobi', text: "Sugar Mingle Extra connected me with the most genuine, caring companion I've ever met. The verification system gave me total confidence.", rating: 5 },
+    { name: 'Kevin A.', role: 'Sugarboy', age: 26, city: 'Lagos', text: "I'd given up on sugar dating apps because of scammers. Sugar Mingle Extra is on a different level — every match feels real and worthwhile.", rating: 5 },
     { name: 'Elizabeth C.', role: 'Sugar Mummy', age: 51, city: 'London', text: "The Platinum plan is absolutely worth it. I have priority visibility and I've had three incredible connections this month alone.", rating: 5 },
 ]
 
@@ -198,7 +198,7 @@ export default function HomePage() {
                     <div className="section-header">
                         <div className="section-tag">Unlimited Connections Worldwide</div>
                         <h2>Love Knows No <span className="gradient-text">Boundaries</span></h2>
-                        <p style={{ maxWidth: 520, margin: '12px auto 0' }}>SugarMingle brings together people from every background and country. Real connections across cultures and continents.</p>
+                        <p style={{ maxWidth: 520, margin: '12px auto 0' }}>Sugar Mingle Extra brings together people from every background and country. Real connections across cultures and continents.</p>
                     </div>
                     <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
                         {[
@@ -238,7 +238,7 @@ export default function HomePage() {
             <section className="section">
                 <div className="container">
                     <div className="section-header">
-                        <div className="section-tag">Who Is SugarMingle For?</div>
+                        <div className="section-tag">Who Is Sugar Mingle Extra For?</div>
                         <h2>Every Sugar <span className="gradient-text">Connection Type</span></h2>
                         <p style={{ maxWidth: 500, margin: '12px auto 0' }}>Whether you're wealthy, seeking, or simply looking for a genuine mutual arrangement</p>
                     </div>

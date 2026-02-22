@@ -93,7 +93,7 @@ export default function ProfilePage() {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 140px)', textAlign: 'center', padding: 40 }}>
                 <CameraIcon size={64} color="var(--text-muted)" />
                 <h2 style={{ marginTop: 20 }}>Create Your Profile</h2>
-                <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>Sign up to start building your SugarMingle profile.</p>
+                <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>Sign up to start building your Sugar Mingle Extra profile.</p>
                 <button className="btn btn-primary" style={{ marginTop: 24 }} onClick={() => router.push('/auth/register')}>Get Started</button>
             </div>
         )

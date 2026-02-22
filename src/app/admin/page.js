@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useApp } from '@/lib/context'
 import { ShieldIcon, UserIcon, VerifiedIcon, CrownIcon, MapPinIcon, SearchIcon, CheckIcon, StarIcon } from '@/lib/icons'
 
-const ADMIN_PASSWORD = 'sugarmingle_admin_2026'
+const ADMIN_PASSWORD = 'Sugar Mingle Extra_admin_2026'
 const ADMIN_EMAIL = 'sugarmingleextra@gmail.com'
 
 function AdminDashboard() {
@@ -28,7 +28,7 @@ function AdminDashboard() {
     }, [])
 
     // Stats computed from actual profiles
-    const totalUsers = profiles.length + 1247 // base + seed
+    const totalUsers = profiles.length + 10247832 // 10M+ base + seed
     const verifiedUsers = profiles.filter(p => p.verified).length
     const premiumUsers = profiles.filter(p => p.premium && p.premium !== 'free').length
     const onlineNow = profiles.filter(p => p.online).length
@@ -49,7 +49,7 @@ function AdminDashboard() {
         if (password === ADMIN_PASSWORD) {
             setAuthed(true)
         } else {
-            alert('Incorrect password. Use: sugarmingle_admin_2026')
+            alert('Incorrect password. Use: Sugar Mingle Extra_admin_2026')
         }
     }
 
@@ -70,7 +70,7 @@ function AdminDashboard() {
         return (
             <div style={{ minHeight: '100vh', background: 'var(--dark)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div className="card" style={{ width: 400, maxWidth: '90vw', textAlign: 'center', padding: 40 }}>
-                    <img src="/icon-512.png" alt="SugarMingle" style={{ width: 64, height: 64, borderRadius: 16, margin: '0 auto 16px', objectFit: 'contain' }} />
+                    <img src="/icon-512.png" alt="Sugar Mingle Extra" style={{ width: 64, height: 64, borderRadius: 16, margin: '0 auto 16px', objectFit: 'contain' }} />
                     <h2 style={{ marginBottom: 4 }}>Admin Panel</h2>
                     <p style={{ color: 'var(--text-muted)', marginBottom: 24, fontSize: '0.85rem' }}>Enter the admin password to continue</p>
                     <input className="input" type="password" placeholder="Admin Password" value={password}
@@ -101,7 +101,7 @@ function AdminDashboard() {
             <div style={{ background: 'var(--dark-card)', borderBottom: '1px solid var(--dark-border)', padding: '12px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                     <img src="/icon-512.png" alt="" style={{ width: 32, height: 32, borderRadius: 8, objectFit: 'contain' }} />
-                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar</span>Mingle Admin</span>
+                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar Mingle</span> Extra Admin</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                     <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{ADMIN_EMAIL}</span>

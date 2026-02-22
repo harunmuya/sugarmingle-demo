@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation'
 function Logo() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <img src="/icon-512.png" alt="SugarMingle" style={{ width: 32, height: 32, borderRadius: 8, objectFit: 'contain' }} />
+            <img src="/icon-512.png" alt="Sugar Mingle Extra" style={{ width: 40, height: 40, borderRadius: 10, objectFit: 'contain' }} />
             <span style={{ fontWeight: 800, fontSize: '1.1rem', color: '#fff' }}>
-                <span style={{ background: 'linear-gradient(135deg, #E91E90 0%, #FF8C42 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Sugar</span>Mingle
+                <span style={{ background: 'linear-gradient(135deg, #E91E90 0%, #FF8C42 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Sugar Mingle</span> Extra
             </span>
         </div>
     )
@@ -58,7 +58,7 @@ export default function Footer() {
                     <div style={{ maxWidth: 280 }}>
                         <Logo />
                         <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', marginTop: 16, lineHeight: 1.6 }}>
-                            SugarMingle is the leading premium sugar dating platform connecting verified sugar mummies, daddies, and babies worldwide.
+                            Sugar Mingle Extra is the world's leading premium sugar dating platform connecting verified sugar mummies, daddies, and babies across 195+ countries worldwide.
                         </p>
                     </div>
 
@@ -91,7 +91,7 @@ export default function Footer() {
                     gap: 20
                 }}>
                     <div style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem' }}>
-                        © 2026 SugarMingle. All rights reserved. Registered trademark of SugarMingle Global.
+                        © 2026 Sugar Mingle Extra. All rights reserved. A global platform by Sugar Mingle ExtraExtra.com.
                     </div>
                     <div style={{ display: 'flex', gap: 20 }}>
                         {/* Social placeholders as simple CSS circles or icons */}

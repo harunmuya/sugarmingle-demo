@@ -9,7 +9,7 @@ export default function AboutPage() {
             <nav className="navbar" style={{ justifyContent: 'space-between' }}>
                 <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <img src="/icon-512.png" alt="SM" style={{ width: 32, height: 32, borderRadius: 8 }} />
-                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar</span>Mingle</span>
+                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar Mingle</span> Extra</span>
                 </Link>
                 <Link href="/auth/register" className="btn btn-primary btn-sm">Join Now</Link>
             </nav>
@@ -17,10 +17,10 @@ export default function AboutPage() {
             <main style={{ paddingTop: 100, paddingBottom: 80 }}>
                 <div className="container" style={{ maxWidth: 800 }}>
                     <div className="section-tag" style={{ margin: '0 auto 16px', display: 'table' }}>Our Mission</div>
-                    <h1 style={{ textAlign: 'center', marginBottom: 24 }}>About <span className="gradient-text">SugarMingle</span></h1>
+                    <h1 style={{ textAlign: 'center', marginBottom: 24 }}>About <span className="gradient-text">Sugar Mingle Extra</span></h1>
 
                     <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'var(--text-secondary)', marginBottom: 40, textAlign: 'center' }}>
-                        SugarMingle was founded with a single goal: to redefine the sugar dating experience by creating a safe, elite, and genuinely rewarding environment for ambitious individuals worldwide.
+                        Sugar Mingle Extra was founded with a single goal: to redefine the sugar dating experience by creating a safe, elite, and genuinely rewarding environment for ambitious individuals worldwide.
                     </p>
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 60 }}>
@@ -36,9 +36,9 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    <h2 style={{ marginBottom: 24 }}>The SugarMingle Difference</h2>
+                    <h2 style={{ marginBottom: 24 }}>The Sugar Mingle Extra Difference</h2>
                     <p style={{ marginBottom: 20 }}>
-                        Unlike generic dating apps, SugarMingle understands the unique dynamics of sugar relationships. Whether you are a successful professional looking to spoil someone special or an ambitious individual seeking mentorship and luxury, we provide the tools to connect you with like-minded partners.
+                        Unlike generic dating apps, Sugar Mingle Extra understands the unique dynamics of sugar relationships. Whether you are a successful professional looking to spoil someone special or an ambitious individual seeking mentorship and luxury, we provide the tools to connect you with like-minded partners.
                     </p>
                     <p style={{ marginBottom: 40 }}>
                         Our platform is built on transparency, respect, and mutual benefit. We believe that everyone deserves a relationship that meets their needs and enhances their lifestyle.

@@ -8,7 +8,7 @@ export default function CookiesPage() {
             <nav className="navbar" style={{ justifyContent: 'space-between' }}>
                 <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <img src="/icon-512.png" alt="SM" style={{ width: 32, height: 32, borderRadius: 8 }} />
-                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar</span>Mingle</span>
+                    <span style={{ fontWeight: 800, fontSize: '1.1rem' }}><span className="gradient-text">Sugar Mingle</span> Extra</span>
                 </Link>
                 <Link href="/auth/register" className="btn btn-primary btn-sm">Join Free</Link>
             </nav>
@@ -27,12 +27,12 @@ export default function CookiesPage() {
 
                         <h3 style={{ color: 'var(--text-primary)', marginTop: 32, marginBottom: 12 }}>2. How We Use Cookies</h3>
                         <p style={{ marginBottom: 16 }}>
-                            We use essential cookies to keep you logged in and secure your account. We also use analytics cookies to understand traffic patterns and performance, which allows us to continually optimize SugarMingle.
+                            We use essential cookies to keep you logged in and secure your account. We also use analytics cookies to understand traffic patterns and performance, which allows us to continually optimize Sugar Mingle Extra.
                         </p>
 
                         <h3 style={{ color: 'var(--text-primary)', marginTop: 32, marginBottom: 12 }}>3. Managing Your Preferences</h3>
                         <p style={{ marginBottom: 16 }}>
-                            You can control and manage cookies through your browser settings. Please note that disabling essential cookies may impact your ability to use certain features of SugarMingle, such as staying logged in.
+                            You can control and manage cookies through your browser settings. Please note that disabling essential cookies may impact your ability to use certain features of Sugar Mingle Extra, such as staying logged in.
                         </p>
                     </div>
                 </div>

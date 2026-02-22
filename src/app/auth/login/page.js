@@ -48,7 +48,7 @@ function LoginForm() {
         <div style={{ minHeight: '100vh', background: 'var(--dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
             <div style={{ width: '100%', maxWidth: 400 }}>
                 <div style={{ textAlign: 'center', marginBottom: 32 }}>
-                    <img src="/icon-512.png" alt="SugarMingle" style={{ width: 56, height: 56, borderRadius: 16, objectFit: 'contain', marginBottom: 12 }} />
+                    <img src="/icon-512.png" alt="Sugar Mingle Extra" style={{ width: 56, height: 56, borderRadius: 16, objectFit: 'contain', marginBottom: 12 }} />
                     <h1 style={{ fontSize: '1.5rem', marginBottom: 4 }}>Welcome Back</h1>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Log in to continue your matches</p>
                 </div>

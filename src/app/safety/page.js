@@ -32,7 +32,7 @@ function SafetyContent() {
             <nav className="navbar" style={{ justifyContent: 'space-between' }}>
                 <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
                     <img src="/icon-512.png" alt="SM" style={{ width: 36, height: 36, borderRadius: 10, objectFit: 'contain' }} />
-                    <span style={{ fontWeight: 800, fontSize: '1.2rem' }}><span className="gradient-text">Sugar</span>Mingle</span>
+                    <span style={{ fontWeight: 800, fontSize: '1.2rem' }}><span className="gradient-text">Sugar Mingle</span> Extra</span>
                 </Link>
                 {user && <Link href="/discover" className="btn btn-ghost btn-sm" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6" /></svg> App
@@ -45,7 +45,7 @@ function SafetyContent() {
                         <div className="section-tag">Safety Center</div>
                         <h1>Your Safety is Our <span className="gradient-text">Priority</span></h1>
                         <p style={{ maxWidth: 500, margin: '12px auto 0' }}>
-                            SugarMingle was built to be the scam-free alternative. Here's how we protect you.
+                            Sugar Mingle Extra was built to be the scam-free alternative. Here's how we protect you.
                         </p>
                     </div>
 
@@ -67,7 +67,7 @@ function SafetyContent() {
                         </h2>
                         {[
                             "Never send money to someone you haven't met in person — regardless of their story.",
-                            "Use SugarMingle's in-app video call before agreeing to meet. It's free for all users.",
+                            "Use Sugar Mingle Extra's in-app video call before agreeing to meet. It's free for all users.",
                             'Share your date location with a trusted friend using our Share Date feature.',
                             'Report any requests for gift cards, wire transfers, or cryptocurrency immediately.',
                             'Trust your instincts — if something feels off, block and report.',
@@ -90,7 +90,7 @@ function SafetyContent() {
                             <div style={{ textAlign: 'center', padding: '32px 20px' }}>
                                 <div style={{ marginBottom: 12 }}><CheckIcon size={48} color="var(--success)" /></div>
                                 <h3>Report Submitted</h3>
-                                <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>Our safety team will review within 24 hours. Thank you for helping keep SugarMingle safe.</p>
+                                <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>Our safety team will review within 24 hours. Thank you for helping keep Sugar Mingle Extra safe.</p>
                             </div>
                         ) : (
                             <form onSubmit={handleReport}>

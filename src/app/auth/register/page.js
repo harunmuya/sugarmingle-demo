@@ -41,7 +41,7 @@ function RegisterForm() {
                 onboarded: false,
             }
             setUser(newUser)
-            showToast(`Welcome to SugarMingle, ${form.name}!`, 'success')
+            showToast(`Welcome to Sugar Mingle Extra, ${form.name}!`, 'success')
             router.push('/onboarding')
         }, 800)
     }
@@ -50,7 +50,7 @@ function RegisterForm() {
         <div style={{ minHeight: '100vh', background: 'var(--dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
             <div style={{ width: '100%', maxWidth: 440 }}>
                 <div style={{ textAlign: 'center', marginBottom: 32 }}>
-                    <img src="/icon-512.png" alt="SugarMingle" style={{ width: 56, height: 56, borderRadius: 16, objectFit: 'contain', marginBottom: 12 }} />
+                    <img src="/icon-512.png" alt="Sugar Mingle Extra" style={{ width: 56, height: 56, borderRadius: 16, objectFit: 'contain', marginBottom: 12 }} />
                     <h1 style={{ fontSize: '1.5rem', marginBottom: 4 }}>Create Your Account</h1>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Join 2M+ members worldwide</p>
                 </div>

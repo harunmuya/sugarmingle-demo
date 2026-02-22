@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /onboarding/
+Disallow: /settings/
+
+Sitemap: https://sugarmingleextra.com/sitemap.xml

@@ -11,36 +11,31 @@ export default function LoadingScreen() {
     }, [])
 
     return (
-        <div className={`loading-screen loading-home${phase === 'fade-out' ? ' loading-fade-out' : ''}`}>
-            {/* Background gradient */}
+        <div className={`loading-home${phase === 'fade-out' ? ' loading-fade-out' : ''}`}>
+            {/* Soft background glow */}
             <div className="loading-bg" />
 
-            {/* Animated rings */}
+            {/* Animated rings behind the icon */}
             <div className="loading-rings">
                 <div className="loading-ring ring-1" />
                 <div className="loading-ring ring-2" />
                 <div className="loading-ring ring-3" />
             </div>
 
-            {/* Logo + brand */}
+            {/* Icon — zooms in and out as the main loading indicator */}
             <div className="loading-center">
                 <img
                     src="/icon-512.png"
                     alt="Sugar Mingle Extra"
-                    className="loading-logo loading-logo-hero"
+                    className="loading-logo-hero"
                 />
                 <div className="loading-brand">
                     <span className="gradient-text">Sugar Mingle</span> Extra
                 </div>
                 <div className="loading-tagline">Where Luxury Meets Genuine Connection</div>
-
-                {/* Loading progress bar */}
-                <div className="loading-bar-wrap">
-                    <div className="loading-bar-fill" />
-                </div>
             </div>
 
-            {/* Bottom tagline */}
+            {/* Bottom stats line */}
             <div className="loading-footer-text">
                 10M+ Members · 180+ Countries · Verified Profiles
             </div>

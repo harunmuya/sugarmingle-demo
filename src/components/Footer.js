@@ -106,7 +106,7 @@ export default function Footer() {
                     gap: 20
                 }}>
                     <div style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem' }}>
-                        © 2026 Sugar Mingle Extra. All rights reserved. Open to everyone, everywhere.
+                        © 2026 Sugar Mingle Extra. All rights reserved. Powered &amp; Regulated by <span style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>NexMingle Limited</span>.
                     </div>
                     <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
                         {[

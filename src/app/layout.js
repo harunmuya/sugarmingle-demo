@@ -18,14 +18,14 @@ export const metadata = {
         locale: 'en_US',
         url: 'https://sugarmingleextra.com',
         siteName: 'Sugar Mingle Extra',
-        title: 'Sugar Mingle Extra – Premium Sugar Dating',
-        description: 'Meet verified sugar mummies, sugar daddies & sugar babies worldwide. 10M+ users. Safe, real, luxury dating.',
+        title: 'Sugar Mingle Extra – Premium Dating | Meet Real People Worldwide',
+        description: 'Join 10M+ verified members worldwide. Find genuine connections, real relationships and meaningful matches. Safe, verified, global.',
         images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Sugar Mingle Extra Dating' }]
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Sugar Mingle Extra – Premium Sugar Dating',
-        description: 'Meet verified sugar mummies, daddies & babies worldwide. 10M+ users.',
+        title: 'Sugar Mingle Extra – Premium Dating',
+        description: 'Meet 10M+ verified members worldwide. Real matches, real connections.',
         images: ['/og-image.jpg']
     },
     icons: {
@@ -45,7 +45,8 @@ export default function RootLayout({ children }) {
             <head>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-                <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+                {/* Viewport: allow user scaling for accessibility + smart TV browsers */}
+                <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
                 <script src="https://js.paystack.co/v1/inline.js" async></script>
             </head>
             <body suppressHydrationWarning>

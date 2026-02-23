@@ -25,7 +25,7 @@ function TierBadge({ tier }) {
 
 export default function DiscoverPage() {
     const router = useRouter()
-    const { user, profiles, tier, dailyLikes, swipeIndex, setSwipeIndex, handleLike, matchPopup, setMatchPopup, showToast, DAILY_LIMIT } = useApp()
+    const { user, getDiscoverProfiles, tier, dailyLikes, swipeIndex, setSwipeIndex, handleLike, matchPopup, setMatchPopup, showToast, DAILY_LIMIT } = useApp()
     const [dragX, setDragX] = useState(0)
     const [dragStart, setDragStart] = useState(null)
     const [swiping, setSwiping] = useState(false)
@@ -46,6 +46,7 @@ export default function DiscoverPage() {
         }
     }, [])
 
+    const profiles = getDiscoverProfiles(user)
     const ranked = rankProfiles(profiles, user)
 
     // Neary Filtering Logic

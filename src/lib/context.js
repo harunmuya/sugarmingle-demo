@@ -219,9 +219,37 @@ export function AppProvider({ children }) {
         })
     }
 
+    // ── Gender-based opposite-attraction matching ────────────────────────────
+    // Men see Women, Women see Men, Non-binary/Other see everyone.
+    // Respects user's `lookingFor` preference if set.
+    const getDiscoverProfiles = (u) => {
+        if (!u) return profiles
+        const myGender = (u.gender || '').toLowerCase()
+        const lookingFor = (u.lookingFor || 'everyone').toLowerCase()
+
+        return profiles.filter(p => {
+            // Never show the user's own profile.
+            if (p.id === u.id) return false
+
+            const theirGender = (p.gender || '').toLowerCase()
+
+            // If user explicitly set a preference
+            if (lookingFor === 'women') return theirGender === 'woman'
+            if (lookingFor === 'men') return theirGender === 'man'
+            if (lookingFor === 'non-binary people') return theirGender === 'non-binary'
+            // 'Everyone' falls through to gender-based default
+
+            // Default: show the opposite gender
+            if (myGender === 'man') return theirGender === 'woman' || theirGender === 'non-binary'
+            if (myGender === 'woman') return theirGender === 'man' || theirGender === 'non-binary'
+            // Non-binary / Other / unknown: show all
+            return true
+        })
+    }
+
     return (
         <AppContext.Provider value={{
-            user, setUser: saveUser, profiles, matches, conversations, notifications,
+            user, setUser: saveUser, profiles, getDiscoverProfiles, matches, conversations, notifications,
             tier, setTier: saveTier, dailyLikes, dailyMessages, swipeIndex, setSwipeIndex,
             loading, toast, matchPopup, setMatchPopup,
             handleLike, sendMessage, showToast, addNotification, DAILY_LIMIT, MESSAGE_LIMIT

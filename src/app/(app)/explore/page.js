@@ -19,7 +19,6 @@ const LOCATIONS = [
     'Sydney, Australia', 'Mumbai, India',
 ]
 
-const ROLES = ['All', 'Sugar Mummy', 'Sugar Daddy', 'Sugar Baby', 'Sugarboy']
 const GENDERS = ['All', 'Woman', 'Man', 'Non-binary']
 const ORIENTATIONS = ['All', 'Straight', 'Gay', 'Lesbian', 'Bisexual', 'Pansexual']
 const AGE_RANGES = ['All', '18-25', '26-35', '36-45', '46-55', '55+']
@@ -41,11 +40,11 @@ function TierBadge({ tier }) {
 
 export default function ExplorePage() {
     const router = useRouter()
-    const { profiles, user, handleLike, showToast, tier } = useApp()
+    const { getDiscoverProfiles, user, handleLike, showToast, tier } = useApp()
     const [search, setSearch] = useState('')
     const [showFilters, setShowFilters] = useState(false)
     const [filters, setFilters] = useState({
-        role: 'All', gender: 'All', orientation: 'All', age: 'All',
+        gender: 'All', orientation: 'All', age: 'All',
         location: 'All Locations', premium: 'All', sort: 'Best Match',
         interests: [], onlineOnly: false, verifiedOnly: false,
         minDistance: 0, maxDistance: 500,
@@ -58,7 +57,8 @@ export default function ExplorePage() {
     }))
 
     const filtered = useMemo(() => {
-        let result = [...profiles]
+        // Start with gender-appropriate profiles (opposite gender by default)
+        let result = getDiscoverProfiles(user)
 
         // Text search
         if (search) {
@@ -67,15 +67,11 @@ export default function ExplorePage() {
                 p.name.toLowerCase().includes(q) ||
                 p.bio?.toLowerCase().includes(q) ||
                 p.location?.toLowerCase().includes(q) ||
-                p.role?.toLowerCase().includes(q) ||
                 p.job?.toLowerCase().includes(q)
             )
         }
 
-        // Role filter
-        if (filters.role !== 'All') result = result.filter(p => p.role === filters.role)
-
-        // Gender filter
+        // Gender filter (manual override)
         if (filters.gender !== 'All') result = result.filter(p => p.gender === filters.gender)
 
         // Orientation filter
@@ -117,7 +113,7 @@ export default function ExplorePage() {
         else result.sort((a, b) => (b.attractiveness || 0) - (a.attractiveness || 0)) // Best Match
 
         return result
-    }, [profiles, search, filters])
+    }, [user, getDiscoverProfiles, search, filters])
 
     return (
         <div style={{ padding: '16px 20px' }}>
@@ -165,17 +161,9 @@ export default function ExplorePage() {
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 12 }}>
-                        {/* Role */}
-                        <div className="input-group" style={{ marginBottom: 8 }}>
-                            <label className="input-label">Looking For</label>
-                            <select className="select" value={filters.role} onChange={e => updateFilter('role', e.target.value)}>
-                                {ROLES.map(r => <option key={r}>{r}</option>)}
-                            </select>
-                        </div>
-
                         {/* Gender */}
                         <div className="input-group" style={{ marginBottom: 8 }}>
-                            <label className="input-label">Gender</label>
+                            <label className="input-label">Show Me</label>
                             <select className="select" value={filters.gender} onChange={e => updateFilter('gender', e.target.value)}>
                                 {GENDERS.map(g => <option key={g}>{g}</option>)}
                             </select>

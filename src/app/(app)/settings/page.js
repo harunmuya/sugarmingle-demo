@@ -1,13 +1,48 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useApp } from '@/lib/context'
 import { SettingsIcon, ShieldIcon, LockIcon, CrownIcon, MapPinIcon, UserIcon } from '@/lib/icons'
+
+// Visible-on-all-backgrounds toggle
+const ToggleSwitch = ({ checked, onChange, disabled }) => (
+    <div
+        style={{
+            width: 48, height: 26, borderRadius: 13, padding: 3, cursor: disabled ? 'not-allowed' : 'pointer',
+            background: checked ? 'var(--gradient)' : 'rgba(150,150,150,0.35)',
+            border: checked ? 'none' : '1.5px solid rgba(150,150,150,0.5)',
+            transition: 'background 0.25s', opacity: disabled ? 0.45 : 1,
+            display: 'flex', alignItems: 'center', flexShrink: 0,
+            boxShadow: checked ? '0 2px 8px rgba(233,30,144,0.35)' : '0 1px 4px rgba(0,0,0,0.15)',
+        }}
+        onClick={() => !disabled && onChange(!checked)}
+        role="switch" aria-checked={checked}
+    >
+        <div style={{
+            width: 20, height: 20, borderRadius: '50%',
+            background: checked ? '#fff' : '#d0d0d0',
+            boxShadow: '0 1px 4px rgba(0,0,0,0.25)',
+            transition: 'transform 0.25s, background 0.25s',
+            transform: checked ? 'translateX(22px)' : 'translateX(0)',
+        }} />
+    </div>
+)
+
+const SettingRow = ({ label, desc, children }) => (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 0', borderBottom: '1px solid var(--dark-border)', gap: 12 }}>
+        <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{label}</div>
+            {desc && <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 2 }}>{desc}</div>}
+        </div>
+        {children}
+    </div>
+)
 
 export default function SettingsPage() {
     const router = useRouter()
     const { user, setUser, tier, showToast } = useApp()
     const [showDelete, setShowDelete] = useState(false)
+    const [locationStatus, setLocationStatus] = useState('idle') // idle | requesting | granted | denied
     const [settings, setSettings] = useState({
         pushNotifications: user?.settings?.pushNotifications ?? true,
         emailNotifications: user?.settings?.emailNotifications ?? true,
@@ -19,6 +54,8 @@ export default function SettingsPage() {
         showOnline: user?.settings?.showOnline ?? true,
         incognito: user?.settings?.incognito ?? false,
         readReceipts: user?.settings?.readReceipts ?? true,
+        locationEnabled: user?.settings?.locationEnabled ?? false,
+        locationCoords: user?.settings?.locationCoords ?? null,
         ageRange: user?.settings?.ageRange ?? [18, 60],
         maxDistance: user?.settings?.maxDistance ?? 100,
     })
@@ -30,28 +67,26 @@ export default function SettingsPage() {
         showToast('Setting updated', 'success')
     }
 
-    const ToggleSwitch = ({ checked, onChange, disabled }) => (
-        <div style={{
-            width: 44, height: 24, borderRadius: 12, padding: 2, cursor: disabled ? 'not-allowed' : 'pointer',
-            background: checked ? 'var(--gradient)' : 'var(--dark-border)',
-            transition: 'background 0.2s', opacity: disabled ? 0.5 : 1
-        }} onClick={() => !disabled && onChange(!checked)}>
-            <div style={{
-                width: 20, height: 20, borderRadius: '50%', background: '#fff',
-                transition: 'transform 0.2s', transform: checked ? 'translateX(20px)' : 'translateX(0)'
-            }} />
-        </div>
-    )
-
-    const SettingRow = ({ label, desc, children }) => (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 0', borderBottom: '1px solid var(--dark-border)' }}>
-            <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{label}</div>
-                {desc && <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 2 }}>{desc}</div>}
-            </div>
-            {children}
-        </div>
-    )
+    const requestLocation = () => {
+        if (!navigator.geolocation) {
+            showToast('Geolocation is not supported by your browser', 'error'); return
+        }
+        setLocationStatus('requesting')
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                const coords = { lat: pos.coords.latitude, lng: pos.coords.longitude, accuracy: Math.round(pos.coords.accuracy) }
+                setLocationStatus('granted')
+                updateSetting('locationEnabled', true)
+                updateSetting('locationCoords', coords)
+                showToast('Location enabled — showing nearby matches', 'success')
+            },
+            (err) => {
+                setLocationStatus('denied')
+                showToast('Location access denied. Enable it in browser settings.', 'error')
+            },
+            { enableHighAccuracy: true, timeout: 10000 }
+        )
+    }
 
     if (!user) {
         return (
@@ -96,6 +131,37 @@ export default function SettingsPage() {
                 </div>
             </div>
 
+            {/* LOCATION */}
+            <div className="card" style={{ marginBottom: 20 }}>
+                <h3 style={{ fontSize: '0.95rem', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <MapPinIcon size={16} color="var(--primary)" /> Location
+                </h3>
+                <SettingRow
+                    label="Location Access"
+                    desc={settings.locationEnabled
+                        ? `📍 Location active — showing matches near you`
+                        : 'Allow access to show matches in your area'}
+                >
+                    <ToggleSwitch
+                        checked={settings.locationEnabled}
+                        onChange={(v) => {
+                            if (v) requestLocation()
+                            else updateSetting('locationEnabled', false)
+                        }}
+                    />
+                </SettingRow>
+                {!settings.locationEnabled && locationStatus !== 'denied' && (
+                    <button className="btn btn-ghost w-full" style={{ marginTop: 10, fontSize: '0.85rem' }} onClick={requestLocation}>
+                        {locationStatus === 'requesting' ? '📡 Requesting location...' : '📍 Enable Location for Better Matches'}
+                    </button>
+                )}
+                {locationStatus === 'denied' && (
+                    <div style={{ marginTop: 10, padding: '10px 12px', background: 'rgba(239,68,68,0.08)', borderRadius: 8, fontSize: '0.82rem', color: 'var(--error)' }}>
+                        Location access was denied. Please enable it in your browser/device settings and try again.
+                    </div>
+                )}
+            </div>
+
             {/* NOTIFICATIONS */}
             <div className="card" style={{ marginBottom: 20 }}>
                 <h3 style={{ fontSize: '0.95rem', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -138,7 +204,7 @@ export default function SettingsPage() {
                 <SettingRow label="Show Online Status">
                     <ToggleSwitch checked={settings.showOnline} onChange={v => updateSetting('showOnline', v)} />
                 </SettingRow>
-                <SettingRow label="Read Receipts" desc="Let others see when you've read their messages">
+                <SettingRow label="Read Receipts" desc="Let others see when you've read messages">
                     <ToggleSwitch checked={settings.readReceipts} onChange={v => updateSetting('readReceipts', v)} />
                 </SettingRow>
                 <SettingRow label="Incognito Mode" desc={tier === 'free' || tier === 'silver' ? 'Gold+ feature' : 'Browse without appearing in discovery'}>
@@ -156,23 +222,24 @@ export default function SettingsPage() {
             {/* DISCOVERY PREFERENCES */}
             <div className="card" style={{ marginBottom: 20 }}>
                 <h3 style={{ fontSize: '0.95rem', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <MapPinIcon size={16} color="var(--primary)" /> Discovery Preferences
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+                    Discovery Preferences
                 </h3>
-                <SettingRow label="Age Range" desc={`${settings.ageRange[0]} - ${settings.ageRange[1]}`}>
+                <SettingRow label="Age Range" desc={`${settings.ageRange[0]} – ${settings.ageRange[1]} years`}>
                     <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                        <input type="number" className="input" style={{ width: 60, textAlign: 'center' }}
-                            min="18" max="80" value={settings.ageRange[0]}
+                        <input type="number" className="input" style={{ width: 60, textAlign: 'center', padding: '6px 8px' }}
+                            min="18" max="100" value={settings.ageRange[0]}
                             onChange={e => updateSetting('ageRange', [Number(e.target.value), settings.ageRange[1]])} />
-                        <span style={{ color: 'var(--text-muted)' }}>to</span>
-                        <input type="number" className="input" style={{ width: 60, textAlign: 'center' }}
-                            min="18" max="80" value={settings.ageRange[1]}
+                        <span style={{ color: 'var(--text-muted)' }}>–</span>
+                        <input type="number" className="input" style={{ width: 60, textAlign: 'center', padding: '6px 8px' }}
+                            min="18" max="100" value={settings.ageRange[1]}
                             onChange={e => updateSetting('ageRange', [settings.ageRange[0], Number(e.target.value)])} />
                     </div>
                 </SettingRow>
                 <SettingRow label="Max Distance" desc={`${settings.maxDistance} km`}>
-                    <input type="range" min="1" max="500" value={settings.maxDistance}
+                    <input type="range" min="1" max="20000" value={settings.maxDistance}
                         onChange={e => updateSetting('maxDistance', Number(e.target.value))}
-                        style={{ width: 150, accentColor: '#E91E90' }} />
+                        style={{ width: 140, accentColor: '#E91E90' }} />
                 </SettingRow>
             </div>
 
@@ -183,35 +250,25 @@ export default function SettingsPage() {
                 </h3>
                 <button className="btn btn-ghost w-full" style={{ marginBottom: 8, justifyContent: 'flex-start', color: 'var(--text-secondary)' }}
                     onClick={() => {
-                        localStorage.removeItem('sm_user')
-                        localStorage.removeItem('sm_tier')
-                        localStorage.removeItem('sm_matches')
-                        localStorage.removeItem('sm_convos')
+                        localStorage.removeItem('sm_user'); localStorage.removeItem('sm_tier')
+                        localStorage.removeItem('sm_matches'); localStorage.removeItem('sm_convos')
                         window.location.href = '/'
-                    }}>
-                    Log Out
-                </button>
+                    }}>Log Out</button>
                 <button className="btn btn-ghost w-full" style={{ justifyContent: 'flex-start', color: 'var(--error)' }}
-                    onClick={() => setShowDelete(true)}>
-                    Delete Account
-                </button>
+                    onClick={() => setShowDelete(true)}>Delete Account</button>
             </div>
 
-            {/* DELETE CONFIRMATION */}
             {showDelete && (
                 <div className="modal-overlay" onClick={() => setShowDelete(false)}>
                     <div className="modal" onClick={e => e.stopPropagation()}>
                         <h3>Delete Account?</h3>
                         <p style={{ color: 'var(--text-muted)', margin: '12px 0', fontSize: '0.9rem' }}>
-                            This action is permanent and cannot be reversed. All your data, matches, and conversations will be lost.
+                            This action is permanent and cannot be reversed. All your data, matches and conversations will be lost.
                         </p>
                         <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
                             <button className="btn btn-ghost" onClick={() => setShowDelete(false)}>Cancel</button>
                             <button className="btn" style={{ background: 'var(--error)', color: '#fff', border: 'none' }}
-                                onClick={() => {
-                                    localStorage.clear()
-                                    window.location.href = '/'
-                                }}>Delete Forever</button>
+                                onClick={() => { localStorage.clear(); window.location.href = '/' }}>Delete Forever</button>
                         </div>
                     </div>
                 </div>

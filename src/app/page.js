@@ -95,10 +95,20 @@ const FEATURES = [
 ]
 
 const TESTIMONIALS = [
-    { name: 'Patricia M.', role: 'Verified Member', age: 44, city: 'Nairobi', text: "Sugar Mingle Extra connected me with the most genuine, caring companion I've ever met. The verification system gave me total confidence.", rating: 5 },
-    { name: 'Kevin A.', role: 'Premium Member', age: 26, city: 'Lagos', text: "I'd given up on dating apps because of scammers. Sugar Mingle Extra is on a different level — every match feels real and worthwhile.", rating: 5 },
-    { name: 'Elizabeth C.', role: 'Gold Member', age: 51, city: 'London', text: "The Platinum plan is absolutely worth it. I have priority visibility and I've had three incredible connections this month alone.", rating: 5 },
+    { name: 'Patricia M.', age: 44, city: 'Nairobi, Kenya', emoji: '🇰🇪', text: "Sugar Mingle Extra connected me with the most genuine, caring companion I've ever met. The verification system gave me total confidence.", rating: 5 },
+    { name: 'Kevin A.', age: 26, city: 'Lagos, Nigeria', emoji: '🇳🇬', text: "I'd given up on dating apps because of scammers. Sugar Mingle Extra is on a different level — every match feels real and worthwhile.", rating: 5 },
+    { name: 'Elizabeth C.', age: 51, city: 'London, UK', emoji: '🇬🇧', text: "The Platinum plan is absolutely worth it. I have priority visibility and I've had three incredible connections this month alone.", rating: 5 },
+    { name: 'Rajan P.', age: 38, city: 'Mumbai, India', emoji: '🇮🇳', text: "I met someone amazing within two weeks. She's from Germany — the platform brought us together across continents. We are now planning to meet in Paris.", rating: 5 },
+    { name: 'Amira H.', age: 29, city: 'Dubai, UAE', emoji: '🇦🇪', text: "Finally a platform where I feel safe as a woman. Verified profiles only, and the matching algorithm genuinely understood what I was looking for.", rating: 5 },
+    { name: 'Thomas B.', age: 67, city: 'Berlin, Germany', emoji: '🇩🇪', text: "I thought online dating wasn't for my age group. Sugar Mingle Extra proved me completely wrong. Met a wonderful lady from Italy — we talk every day.", rating: 5 },
+    { name: 'Yemi A.', age: 22, city: 'Accra, Ghana', emoji: '🇬🇭', text: "As a young professional just starting out, I needed a platform that respects everyone. This is it. My match and I are now three months strong.", rating: 5 },
+    { name: 'Sakura T.', age: 33, city: 'Tokyo, Japan', emoji: '🇯🇵', text: "I was nervous about international dating but the platform made it so comfortable. The translation hints in chat really helped break the ice.", rating: 5 },
+    { name: 'Diana R.', age: 57, city: 'São Paulo, Brazil', emoji: '🇧🇷', text: "Love doesn't have an age limit! At 57, I found a connection that's reignited my passion for life. Never thought an app could do this for me.", rating: 5 },
+    { name: 'Marcus J.', age: 41, city: 'Toronto, Canada', emoji: '🇨🇦', text: "The quality of profiles here is unmatched. Everyone is serious about connecting. I've met people from 8 different countries just this month.", rating: 5 },
+    { name: 'Blessing E.', age: 31, city: 'Cape Town, SA', emoji: '🇿🇦', text: "Completely different from other apps. Real people, real conversations. I met my partner here 6 months ago. We couldn't be happier.", rating: 5 },
+    { name: 'Sophie D.', age: 48, city: 'Paris, France', emoji: '🇫🇷', text: "As a French woman who loves meeting people from other cultures, this is paradise. 10 million members truly means endless interesting people to meet.", rating: 5 },
 ]
+
 
 const COUPLE_CARDS = [
     { photo: 'https://images.unsplash.com/photo-1516726817505-f5ed825624d8?w=300&h=400&fit=crop', title: 'Global Romance', subtitle: 'London ↔ Nairobi', badge: 'Platinum' },
@@ -335,18 +345,18 @@ export default function HomePage() {
                         <div className="section-tag">Success Stories</div>
                         <h2>Real Connections. <span className="gradient-text">Real Stories.</span></h2>
                     </div>
-                    <div className="grid-3">
+                    <div className="testimonials-scroll">
                         {TESTIMONIALS.map(t => (
-                            <div key={t.name} className="card testimonial-card">
-                                <div style={{ display: 'flex', marginBottom: 12, gap: 2 }}>
-                                    {Array.from({ length: t.rating }).map((_, i) => <StarIcon key={i} size={16} color="#FFD700" fill="#FFD700" />)}
+                            <div key={t.name} className="card testimonial-slide">
+                                <div style={{ display: 'flex', marginBottom: 10, gap: 2 }}>
+                                    {Array.from({ length: t.rating }).map((_, i) => <StarIcon key={i} size={14} color="#FFD700" fill="#FFD700" />)}
                                 </div>
-                                <p style={{ fontSize: '0.9rem', fontStyle: 'italic', marginBottom: 16 }}>"{t.text}"</p>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                                    <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.9rem', color: '#fff', flexShrink: 0 }}>{t.name[0]}</div>
+                                <p style={{ fontSize: '0.86rem', fontStyle: 'italic', lineHeight: 1.65, marginBottom: 14, color: 'var(--text-secondary)', flex: 1 }}>"{t.text}"</p>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 'auto' }}>
+                                    <div style={{ width: 38, height: 38, borderRadius: '50%', background: 'var(--gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.95rem', color: '#fff', flexShrink: 0 }}>{t.name[0]}</div>
                                     <div>
-                                        <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{t.name}, {t.age}</div>
-                                        <div style={{ fontSize: '0.75rem', color: 'var(--primary)' }}>{t.role} · {t.city}</div>
+                                        <div style={{ fontWeight: 700, fontSize: '0.85rem' }}>{t.name}, {t.age}</div>
+                                        <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{t.emoji} {t.city}</div>
                                     </div>
                                 </div>
                             </div>
@@ -354,6 +364,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
+
 
             {/* CTA SECTION */}
             <section className="section cta-section">

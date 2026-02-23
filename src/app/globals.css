@@ -3489,3 +3489,201 @@ a {
     font-size: 0.9rem;
   }
 }
+
+/* ============================================================
+   AUTH PAGES — Split Photo + Form Layout
+   ============================================================ */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  background: #fff;
+}
+
+/* Left photo panel */
+.auth-side-panel {
+  flex: 0 0 45%;
+  position: relative;
+  overflow: hidden;
+  background: #111;
+}
+
+.auth-side-photos {
+  position: absolute;
+  inset: 0;
+}
+
+.auth-side-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.auth-side-photo-active {
+  opacity: 1;
+}
+
+.auth-side-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 28px 32px;
+  color: #fff;
+}
+
+.auth-side-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-side-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(233, 30, 144, 0.4);
+}
+
+.auth-side-name {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.auth-side-stats {
+  display: flex;
+  gap: 24px;
+}
+
+.auth-stat {
+  text-align: center;
+}
+
+.auth-stat-val {
+  font-size: 1.4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #E91E90, #FF8C42);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-stat-lbl {
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+}
+
+.auth-side-verified {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.auth-side-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.auth-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  padding: 0;
+}
+
+.auth-dot-active {
+  background: #E91E90;
+  transform: scale(1.3);
+}
+
+/* Right form column */
+.auth-form-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow-y: auto;
+}
+
+.auth-form-inner {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Mobile: stack vertically, hide photo panel */
+@media (max-width: 768px) {
+  .auth-side-panel {
+    display: none;
+  }
+
+  .auth-form-col {
+    padding: 60px 20px 40px;
+  }
+
+  .auth-form-inner {
+    max-width: 100%;
+  }
+}
+
+/* ============================================================
+   TESTIMONIALS HORIZONTAL SCROLL
+   ============================================================ */
+.testimonials-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar on desktop */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(233, 30, 144, 0.3) transparent;
+}
+
+.testimonials-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.testimonials-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.testimonials-scroll::-webkit-scrollbar-thumb {
+  background: rgba(233, 30, 144, 0.3);
+  border-radius: 2px;
+}
+
+.testimonial-slide {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .testimonial-slide {
+    flex: 0 0 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-slide {
+    flex: 0 0 200px;
+  }
+}

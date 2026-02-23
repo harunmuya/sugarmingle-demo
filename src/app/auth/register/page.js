@@ -25,10 +25,10 @@ function AuthSidePanel() {
                 ))}
             </div>
             <div className="auth-side-overlay">
-                <div className="auth-side-brand">
+                <Link href="/" className="auth-side-brand" style={{ textDecoration: 'none' }}>
                     <img src="/icon-512.png" alt="SME" className="auth-side-logo" />
                     <span className="auth-side-name"><span className="gradient-text">Sugar Mingle</span> Extra</span>
-                </div>
+                </Link>
                 <div className="auth-side-stats">
                     <div className="auth-stat"><div className="auth-stat-val">10M+</div><div className="auth-stat-lbl">Members</div></div>
                     <div className="auth-stat"><div className="auth-stat-val">180+</div><div className="auth-stat-lbl">Countries</div></div>
@@ -94,9 +94,11 @@ function RegisterForm() {
             <AuthSidePanel />
             <div className="auth-form-col">
                 <div className="auth-form-inner">
-                    <div style={{ textAlign: 'center', marginBottom: 24 }}>
-                        <img src="/icon-512.png" alt="SME" style={{ width: 52, height: 52, borderRadius: 14, objectFit: 'contain', marginBottom: 10 }} />
-                        <h1 style={{ fontSize: '1.5rem', marginBottom: 4 }}>Create Your Account</h1>
+                    <div style={{ textAlign: 'center', marginBottom: 28 }}>
+                        <Link href="/" style={{ display: 'inline-block' }}>
+                            <img src="/icon-512.png" alt="SME" style={{ width: 52, height: 52, borderRadius: 14, objectFit: 'contain', marginBottom: 10 }} />
+                        </Link>
+                        <h2 style={{ fontSize: '1.6rem', marginBottom: 8 }}>Create Account</h2>
                         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Join 10M+ members worldwide — it's free</p>
                     </div>
 

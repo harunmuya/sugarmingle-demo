@@ -6,12 +6,12 @@ import Footer from '@/components/Footer'
 
 function Logo() {
     return (
-        <div className="logo-wrap">
+        <Link href="/" className="logo-wrap" style={{ textDecoration: 'none' }}>
             <img src="/icon-512.png" alt="Sugar Mingle Extra" className="logo-img" />
             <span className="logo-text">
                 <span className="gradient-text">Sugar Mingle</span> Extra
             </span>
-        </div>
+        </Link>
     )
 }
 
@@ -95,18 +95,18 @@ const FEATURES = [
 ]
 
 const TESTIMONIALS = [
-    { name: 'Patricia M.', age: 44, city: 'Nairobi, Kenya', emoji: '🇰🇪', text: "Sugar Mingle Extra connected me with the most genuine, caring companion I've ever met. The verification system gave me total confidence.", rating: 5 },
-    { name: 'Kevin A.', age: 26, city: 'Lagos, Nigeria', emoji: '🇳🇬', text: "I'd given up on dating apps because of scammers. Sugar Mingle Extra is on a different level — every match feels real and worthwhile.", rating: 5 },
-    { name: 'Elizabeth C.', age: 51, city: 'London, UK', emoji: '🇬🇧', text: "The Platinum plan is absolutely worth it. I have priority visibility and I've had three incredible connections this month alone.", rating: 5 },
-    { name: 'Rajan P.', age: 38, city: 'Mumbai, India', emoji: '🇮🇳', text: "I met someone amazing within two weeks. She's from Germany — the platform brought us together across continents. We are now planning to meet in Paris.", rating: 5 },
-    { name: 'Amira H.', age: 29, city: 'Dubai, UAE', emoji: '🇦🇪', text: "Finally a platform where I feel safe as a woman. Verified profiles only, and the matching algorithm genuinely understood what I was looking for.", rating: 5 },
-    { name: 'Thomas B.', age: 67, city: 'Berlin, Germany', emoji: '🇩🇪', text: "I thought online dating wasn't for my age group. Sugar Mingle Extra proved me completely wrong. Met a wonderful lady from Italy — we talk every day.", rating: 5 },
-    { name: 'Yemi A.', age: 22, city: 'Accra, Ghana', emoji: '🇬🇭', text: "As a young professional just starting out, I needed a platform that respects everyone. This is it. My match and I are now three months strong.", rating: 5 },
-    { name: 'Sakura T.', age: 33, city: 'Tokyo, Japan', emoji: '🇯🇵', text: "I was nervous about international dating but the platform made it so comfortable. The translation hints in chat really helped break the ice.", rating: 5 },
-    { name: 'Diana R.', age: 57, city: 'São Paulo, Brazil', emoji: '🇧🇷', text: "Love doesn't have an age limit! At 57, I found a connection that's reignited my passion for life. Never thought an app could do this for me.", rating: 5 },
-    { name: 'Marcus J.', age: 41, city: 'Toronto, Canada', emoji: '🇨🇦', text: "The quality of profiles here is unmatched. Everyone is serious about connecting. I've met people from 8 different countries just this month.", rating: 5 },
-    { name: 'Blessing E.', age: 31, city: 'Cape Town, SA', emoji: '🇿🇦', text: "Completely different from other apps. Real people, real conversations. I met my partner here 6 months ago. We couldn't be happier.", rating: 5 },
-    { name: 'Sophie D.', age: 48, city: 'Paris, France', emoji: '🇫🇷', text: "As a French woman who loves meeting people from other cultures, this is paradise. 10 million members truly means endless interesting people to meet.", rating: 5 },
+    { name: 'Patricia M.', age: 44, city: 'Nairobi, Kenya', text: "Sugar Mingle Extra connected me with the most genuine, caring companion I've ever met. The verification system gave me total confidence.", rating: 5 },
+    { name: 'Kevin A.', age: 26, city: 'Lagos, Nigeria', text: "I'd given up on dating apps because of scammers. Sugar Mingle Extra is on a different level — every match feels real and worthwhile.", rating: 5 },
+    { name: 'Elizabeth C.', age: 51, city: 'London, UK', text: "The Platinum plan is absolutely worth it. I have priority visibility and I've had three incredible connections this month alone.", rating: 5 },
+    { name: 'Rajan P.', age: 38, city: 'Mumbai, India', text: "I met someone amazing within two weeks. She's from Germany — the platform brought us together across continents. We are now planning to meet in Paris.", rating: 5 },
+    { name: 'Amira H.', age: 29, city: 'Dubai, UAE', text: "Finally a platform where I feel safe as a woman. Verified profiles only, and the matching algorithm genuinely understood what I was looking for.", rating: 5 },
+    { name: 'Thomas B.', age: 67, city: 'Berlin, Germany', text: "I thought online dating wasn't for my age group. Sugar Mingle Extra proved me completely wrong. Met a wonderful lady from Italy — we talk every day.", rating: 5 },
+    { name: 'Yemi A.', age: 22, city: 'Accra, Ghana', text: "As a young professional just starting out, I needed a platform that respects everyone. This is it. My match and I are now three months strong.", rating: 5 },
+    { name: 'Sakura T.', age: 33, city: 'Tokyo, Japan', text: "I was nervous about international dating but the platform made it so comfortable. The translation hints in chat really helped break the ice.", rating: 5 },
+    { name: 'Diana R.', age: 57, city: 'São Paulo, Brazil', text: "Love doesn't have an age limit! At 57, I found a connection that's reignited my passion for life. Never thought an app could do this for me.", rating: 5 },
+    { name: 'Marcus J.', age: 41, city: 'Toronto, Canada', text: "The quality of profiles here is unmatched. Everyone is serious about connecting. I've met people from 8 different countries just this month.", rating: 5 },
+    { name: 'Blessing E.', age: 31, city: 'Cape Town, SA', text: "Completely different from other apps. Real people, real conversations. I met my partner here 6 months ago. We couldn't be happier.", rating: 5 },
+    { name: 'Sophie D.', age: 48, city: 'Paris, France', text: "As a French woman who loves meeting people from other cultures, this is paradise. 10 million members truly means endless interesting people to meet.", rating: 5 },
 ]
 
 
@@ -356,7 +356,9 @@ export default function HomePage() {
                                     <div style={{ width: 38, height: 38, borderRadius: '50%', background: 'var(--gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.95rem', color: '#fff', flexShrink: 0 }}>{t.name[0]}</div>
                                     <div>
                                         <div style={{ fontWeight: 700, fontSize: '0.85rem' }}>{t.name}, {t.age}</div>
-                                        <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{t.emoji} {t.city}</div>
+                                        <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                                            <MapPinIcon size={12} color="var(--primary)" /> {t.city}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

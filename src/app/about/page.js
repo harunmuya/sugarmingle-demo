@@ -7,7 +7,7 @@ export default function AboutPage() {
     return (
         <div style={{ background: '#fff', minHeight: '100vh' }}>
             <nav className="navbar" style={{ justifyContent: 'space-between' }}>
-                <Link href="/" className="logo-wrap">
+                <Link href="/" className="logo-wrap" style={{ textDecoration: 'none' }}>
                     <img src="/icon-512.png" alt="SM" className="logo-img" />
                     <span className="logo-text"><span className="gradient-text">Sugar Mingle</span> Extra</span>
                 </Link>

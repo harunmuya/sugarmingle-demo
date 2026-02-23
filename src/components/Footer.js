@@ -4,12 +4,12 @@ import { useRouter } from 'next/navigation'
 
 function Logo() {
     return (
-        <div className="logo-wrap">
+        <Link href="/" className="logo-wrap" style={{ textDecoration: 'none' }}>
             <img src="/icon-512.png" alt="Sugar Mingle Extra" className="logo-img" />
             <span style={{ fontWeight: 800, fontSize: '1.1rem', color: '#fff' }}>
                 <span style={{ background: 'linear-gradient(135deg, #E91E90 0%, #FF8C42 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Sugar Mingle</span> Extra
             </span>
-        </div>
+        </Link>
     )
 }
 

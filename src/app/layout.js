@@ -4,11 +4,11 @@ import './globals.css'
 export const metadata = {
     metadataBase: new URL('https://sugarmingleextra.com'),
     title: {
-        default: 'Sugar Mingle Extra – Premium Sugar Dating | Meet Sugar Mummies, Sugar Daddies & Sugar Babies',
+        default: 'Sugar Mingle Extra – Premium Dating | Meet Real People Worldwide',
         template: '%s | Sugar Mingle Extra'
     },
-    description: 'Sugar Mingle Extra is the world\'s #1 premium sugar dating platform with over 10 million users. Connect with verified sugar mummies, sugar daddies, sugar babies and sugarboys globally. Safe, secure, and scam-free.',
-    keywords: ['sugar dating', 'sugar mummy', 'sugar daddy', 'sugar baby', 'dating app', 'luxury dating', 'sugar mingle extra', 'sugarmingleextra'],
+    description: 'Sugar Mingle Extra is the world\'s #1 premium dating platform with over 10 million verified members. Connect with real people globally for genuine relationships. Safe, secure, and scam-free.',
+    keywords: ['dating app', 'premium dating', 'meet people', 'real matches', 'global dating', 'sugar mingle extra', 'sugarmingleextra', 'verified profiles'],
     authors: [{ name: 'Sugar Mingle Extra', url: 'https://sugarmingleextra.com' }],
     creator: 'Sugar Mingle Extra',
     publisher: 'Sugar Mingle Extra',
@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
             <head>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
                 <script src="https://js.paystack.co/v1/inline.js" async></script>
             </head>
             <body suppressHydrationWarning>

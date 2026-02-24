@@ -68,6 +68,17 @@ function RegisterForm() {
 
         setLoading(true)
         setTimeout(() => {
+            // Check for duplicate email
+            const accounts = JSON.parse(localStorage.getItem('sm_accounts') || '{}')
+            if (accounts[form.email]) {
+                setLoading(false)
+                showToast('An account with this email already exists. Please log in.', 'error')
+                return
+            }
+            // Store account credentials
+            accounts[form.email] = form.password
+            localStorage.setItem('sm_accounts', JSON.stringify(accounts))
+
             const newUser = {
                 id: 'u_' + Date.now(),
                 name: form.name,
@@ -84,7 +95,7 @@ function RegisterForm() {
                 onboarded: false,
             }
             setUser(newUser)
-            showToast(`Welcome to Sugar Mingle Extra, ${form.name}!`, 'success')
+            showToast(`Welcome, ${form.name}! Let's set up your profile.`, 'success')
             router.push('/onboarding')
         }, 800)
     }

@@ -7,7 +7,7 @@ import { CameraIcon, MapPinIcon, HeartIcon, CheckIcon, CrownIcon, VerifiedIcon, 
 const STEPS = [
     { title: 'Add Your Photo', subtitle: 'A great photo gets 10x more matches' },
     { title: 'About You', subtitle: 'Tell potential matches who you are' },
-    { title: 'Your Role', subtitle: 'What are you looking for on Sugar Mingle Extra?' },
+    { title: 'Your Role', subtitle: 'What kind of connection are you looking for?' },
     { title: 'Your Gender & Orientation', subtitle: 'Who do you want to meet?' },
     { title: 'Your Location', subtitle: 'Find matches near you' },
     { title: 'Your Lifestyle', subtitle: 'Share what makes you unique' },
@@ -160,10 +160,12 @@ function OnboardingWizard() {
                         {step === 2 && (
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                                 {[
-                                    { role: 'Sugar Mummy', desc: 'Successful woman seeking companionship', icon: <CrownIcon size={24} color="#E91E90" /> },
-                                    { role: 'Sugar Daddy', desc: 'Wealthy man offering generous arrangements', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E91E90" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3" /></svg> },
-                                    { role: 'Sugar Baby', desc: 'Young woman seeking luxury & mentorship', icon: <HeartIcon size={24} color="#E91E90" /> },
-                                    { role: 'Sugarboy', desc: 'Charming gentleman seeking companionship', icon: <StarIcon size={24} color="#E91E90" /> },
+                                    { role: 'Short-term', desc: 'Looking for something short and sweet', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E91E90" strokeWidth="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg> },
+                                    { role: 'Something Serious', desc: 'Ready for a committed relationship', icon: <HeartIcon size={24} color="#E91E90" /> },
+                                    { role: 'Something Casual', desc: 'Keeping it light and fun', icon: <StarIcon size={24} color="#E91E90" /> },
+                                    { role: 'Long-term', desc: 'Building something lasting', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E91E90" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg> },
+                                    { role: 'Marriage Partner', desc: 'Looking for my forever person', icon: <CrownIcon size={24} color="#E91E90" /> },
+                                    { role: 'Just Looking', desc: 'Exploring what\'s out there', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E91E90" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg> },
                                 ].map(r => (
                                     <div key={r.role} onClick={() => update('role', r.role)} style={{
                                         padding: '20px 16px', borderRadius: 16, cursor: 'pointer', textAlign: 'center',
@@ -290,7 +292,7 @@ function OnboardingWizard() {
                                     <CheckIcon size={40} color="#fff" />
                                 </div>
                                 <h3 style={{ marginBottom: 8 }}>Profile Complete!</h3>
-                                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 20 }}>You're ready to start discovering amazing connections on Sugar Mingle Extra.</p>
+                                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 20 }}>You're ready to start discovering amazing connections.</p>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8, textAlign: 'left', marginBottom: 20 }}>
                                     {[
                                         { icon: <VerifiedIcon size={16} />, text: 'Get verified to boost your visibility' },

@@ -164,8 +164,8 @@ function PricingContent() {
                     {/* HEADER */}
                     <div style={{ textAlign: 'center', marginBottom: 48 }}>
                         <div className="section-tag" style={{ marginBottom: 12 }}>Subscription Plans</div>
-                        <h1>Choose Your <span className="gradient-text">Sugar Mingle Extra Plan</span></h1>
-                        <p style={{ maxWidth: 500, margin: '12px auto 0', fontSize: '1rem' }}>
+                        <h1 style={{ color: '#1a1a1a' }}>Choose Your <span className="gradient-text">Plan</span></h1>
+                        <p style={{ maxWidth: 500, margin: '12px auto 0', fontSize: '1rem', color: '#4a4a4a' }}>
                             Unlock the premium features you deserve. Charged in{' '}
                             <strong style={{ color: 'var(--primary)' }}>{localCurrency.code}</strong>
                             {localCurrency.country !== 'USA' && ` (${localCurrency.country})`}
@@ -188,7 +188,7 @@ function PricingContent() {
                                 <div style={{ marginBottom: 16 }}>
                                     <div style={{ marginBottom: 8 }}>{plan.icon}</div>
                                     <div className="pricing-name" style={{ color: plan.color }}>{plan.name}</div>
-                                    <div className="pricing-price" style={{ color: plan.price === 0 ? 'var(--text-primary)' : plan.color }}>
+                                    <div className="pricing-price" style={{ color: plan.price === 0 ? '#1a1a1a' : plan.color }}>
                                         {formatPrice(plan.price)}
                                         {plan.price > 0 && <span>/mo</span>}
                                     </div>
@@ -203,7 +203,7 @@ function PricingContent() {
                                             <span className={f.included ? 'pricing-feature-check' : 'pricing-feature-x'} style={{ display: 'inline-flex' }}>
                                                 {f.included ? <CheckIcon size={14} color="var(--success)" /> : <XIcon size={14} color="var(--text-muted)" />}
                                             </span>
-                                            <span style={{ color: f.included ? 'var(--text-primary)' : 'var(--text-muted)' }}>{f.text}</span>
+                                            <span style={{ color: f.included ? '#1a1a1a' : '#8e8e8e' }}>{f.text}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -227,7 +227,7 @@ function PricingContent() {
 
                     {/* PAYMENT METHODS */}
                     <div style={{ textAlign: 'center', marginTop: 48 }}>
-                        <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 16 }}>
+                        <div style={{ fontSize: '0.85rem', color: '#4a4a4a', marginBottom: 16 }}>
                             Secure payments powered by Paystack
                         </div>
                         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>

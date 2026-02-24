@@ -11,7 +11,7 @@ const INTEREST_OPTIONS = [
     'Business', 'Crypto', 'Shopping', 'Spa', 'Volunteering', 'Pets'
 ]
 
-const ROLES = ['Sugar Mummy', 'Sugar Daddy', 'Sugar Baby', 'Sugarboy']
+const ROLES = ['Short-term', 'Something Serious', 'Something Casual', 'Long-term', 'Marriage Partner', 'Just Looking']
 const GENDERS = ['Woman', 'Man', 'Non-binary', 'Other']
 const ORIENTATIONS = ['Straight', 'Gay', 'Lesbian', 'Bisexual', 'Pansexual', 'Prefer not to say']
 
@@ -30,7 +30,7 @@ export default function ProfilePage() {
         name: user?.name || '',
         age: user?.age || '',
         bio: user?.bio || '',
-        role: user?.role || 'Sugar Baby',
+        role: user?.role || 'Just Looking',
         gender: user?.gender || 'Woman',
         orientation: user?.orientation || 'Straight',
         location: user?.location || '',
@@ -44,7 +44,7 @@ export default function ProfilePage() {
         preferences: user?.preferences || {
             minAge: 18,
             maxAge: 50,
-            roles: ['Sugar Baby', 'Sugarboy'],
+            roles: ['Something Serious', 'Long-term'],
             maxDistance: 50
         }
     })
@@ -93,7 +93,7 @@ export default function ProfilePage() {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 140px)', textAlign: 'center', padding: 40 }}>
                 <CameraIcon size={64} color="var(--text-muted)" />
                 <h2 style={{ marginTop: 20 }}>Create Your Profile</h2>
-                <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>Sign up to start building your Sugar Mingle Extra profile.</p>
+                <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>Sign up to start building your profile.</p>
                 <button className="btn btn-primary" style={{ marginTop: 24 }} onClick={() => router.push('/auth/register')}>Get Started</button>
             </div>
         )
@@ -321,9 +321,9 @@ export default function ProfilePage() {
                             <div style={{ fontSize: '0.85rem', fontWeight: 600 }}>Up to {user.preferences?.maxDistance || 50} km</div>
                         </div>
                         <div style={{ padding: '8px 12px', background: 'var(--dark-surface)', borderRadius: 8, gridColumn: 'span 2' }}>
-                            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: 2 }}>Seeking Roles</div>
+                            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: 2 }}>Looking For</div>
                             <div style={{ fontSize: '0.82rem', fontWeight: 600, display: 'flex', gap: 6, marginTop: 4 }}>
-                                {(user.preferences?.roles || ['Sugar Baby', 'Sugarboy']).map(r => (
+                                {(user.preferences?.roles || ['Something Serious', 'Long-term']).map(r => (
                                     <span key={r} style={{ background: 'rgba(233,30,144,0.1)', color: 'var(--primary)', padding: '2px 8px', borderRadius: 4, fontSize: '0.7rem' }}>{r}</span>
                                 ))}
                             </div>

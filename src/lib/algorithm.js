@@ -53,20 +53,11 @@ export function rankProfiles(profiles, currentUser) {
 
 export function filterProfiles(profiles, filters, currentUser) {
     return profiles.filter(p => {
-        // Strict Role-Based Matching
-        if (currentUser?.role === 'Sugar Mummy' || currentUser?.role === 'Woman') {
-            // Women see Sugarboys and Men
-            if (p.role !== 'Sugarboy' && p.role !== 'Man') return false
-        } else if (currentUser?.role === 'Sugar Daddy' || currentUser?.role === 'Man') {
-            // Men see Sugar Babies and Sugar Mummies
-            if (p.role !== 'Sugar Baby' && p.role !== 'Sugar Mummy') return false
-        } else if (currentUser?.role === 'Sugarboy') {
-            // Sugarboys see Sugar Mummies
-            if (p.role !== 'Sugar Mummy') return false
-        } else if (currentUser?.role === 'Sugar Baby') {
-            // Sugar Babies see Sugar Daddies
-            if (p.role !== 'Sugar Daddy') return false
-        }
+        // Gender-Based Matching: Men see Women, Women see Men
+        const myGender = (currentUser?.gender || '').toLowerCase()
+        const theirGender = (p.gender || '').toLowerCase()
+        if (myGender === 'man' && theirGender !== 'woman') return false
+        if (myGender === 'woman' && theirGender !== 'man') return false
 
         if (filters.minAge && p.age < filters.minAge) return false
         if (filters.maxAge && p.age > filters.maxAge) return false

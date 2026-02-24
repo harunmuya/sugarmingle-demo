@@ -67,29 +67,48 @@ function LoginForm() {
         if (!form.email || !form.password) { showToast('Please fill all fields', 'error'); return }
         setLoading(true)
         setTimeout(() => {
-            const saved = localStorage.getItem('sm_user')
-            if (saved) {
-                const existing = JSON.parse(saved)
-                if (existing.email === form.email) {
-                    setUser(existing)
-                    showToast(`Welcome back, ${existing.name}!`, 'success')
-                    router.push('/discover')
+            // Check registered accounts
+            const accounts = JSON.parse(localStorage.getItem('sm_accounts') || '{}')
+            const storedPassword = accounts[form.email]
+
+            if (storedPassword) {
+                // Account exists — verify password
+                if (storedPassword !== form.password) {
+                    setLoading(false)
+                    showToast('Incorrect password. Please try again.', 'error')
                     return
                 }
+                // Password matches — load saved user data
+                const saved = localStorage.getItem('sm_user')
+                if (saved) {
+                    const existing = JSON.parse(saved)
+                    if (existing.email === form.email) {
+                        setUser(existing)
+                        showToast(`Welcome back, ${existing.name}!`, 'success')
+                        router.push(existing.onboarded ? '/discover' : '/onboarding')
+                        return
+                    }
+                }
+                // Account exists but no user data saved — treat as returning user
+                const newUser = {
+                    id: 'u_' + Date.now(),
+                    email: form.email,
+                    name: form.email.split('@')[0],
+                    photos: [],
+                    interests: [],
+                    verified: false,
+                    joinedAt: Date.now(),
+                    onboarded: false,
+                }
+                setUser(newUser)
+                showToast('Welcome back! Complete your profile to start matching.', 'success')
+                router.push('/onboarding')
+            } else {
+                // No account found
+                setLoading(false)
+                showToast('No account found with this email. Please register first.', 'error')
+                return
             }
-            const newUser = {
-                id: 'u_' + Date.now(),
-                email: form.email,
-                name: form.email.split('@')[0],
-                photos: [],
-                interests: [],
-                verified: false,
-                joinedAt: Date.now(),
-                onboarded: false,
-            }
-            setUser(newUser)
-            showToast('Welcome! Complete your profile to start matching.', 'success')
-            router.push('/onboarding')
         }, 600)
     }
 
